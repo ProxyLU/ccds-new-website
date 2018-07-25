@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <title>CORNELL CHINESE DRAMA SOCIETY</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=cursive">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=fantasy">
+    <style>
+
+        .carousel-caption {
+            
+        }
+        
+        .title{
+            text-align: center;
+        }
+        
+        #banner{
+            
+        }
+        
+        footer img{
+            width: 50px;
+            height: 50px;
+        }
+        
+        .icon_box{
+            width: 50%;
+        }
+    
+        .home_info{
+            background-color: #ffffff;
+        }
+        
+        .caption{
+            margin-top: -100px;
+            color:white;
+        }
+        
+        .year_timeline{
+            writing-mode:bt-lr;
+            -webkit-appearance:slider-vertical;    
+            height: 300px;
+        }
+        
+        .timeline {
+            list-style: none;
+            padding: 20px 0 20px;
+            position: relative;
+        }
+        
+        .timeline{
+            width: 3px;
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            content: " ";
+            width: 3px;
+            background-color: #eeeeee;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .tl_left > .tl_item{
+            float:right;
+            margin-bottom:200px;
+        }
+        
+        .tl_right > .tl_item{
+            margin-top: 200px;
+        }
+        
+        .top{
+            margin-top: 100px;
+        }
+        
+        .btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+        
+        .hidden{
+            display: none;
+        }
+        
+    </style>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script>
+    
+        function toggle(event_id){
+            var line = document.getElementById("line");
+            
+            var detail = document.getElementById(event_id);
+            var button_id = "b" + event_id;
+            var button = document.getElementById(button_id);
+            
+            if (detail.style.display == "none" ){
+				detail.style.display = "block";
+                button.innerHTML = "Hide ∧";
+            }else{
+				detail.style.display = "none";
+                button.innerHTML = "Read more ∨";
+            }
+            
+            var left = document.getElementById("timeline_left");
+            var right = document.getElementById("timeline_right");
+            var l_height = left.offsetHeight;
+            var r_height = right.offsetHeight;
+            
+            if (l_height >= r_height){
+                var maxh = l_height + "px";
+            } else {
+                var maxh = r_height + "px";
+            }
+            
+            line.style.height = maxh;
+        }
+        
+        function tl_switch(){
+            
+            $hidden = $('.hidden');
+            
+            $hidden.css({
+                display:block
+            });
+            
+            $('.visible').css({
+                display:none
+            });
+            
+        }
+        
+        $(document).ready(function(){
+            $("#tl_to_left").click(function(){
+                $(".visible").css("display", "none");
+                $(".hidden").css("display", "block");
+            });
+            
+            $("#tl_to_right").click(function(){
+                $(".visible").css("display", "block");
+                $(".hidden").css("display", "none");
+            });
+            
+        });
+        
+        
+    </script>
+    </head>
+    <body>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#about").addClass("active");
+            });
+        </script>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">
+            <img src="images/icon1.png" width="50" height="50" class="d-inline-block align-top" alt="icon">
+          </a>
+          <a class="navbar-brand" href="#">
+              Cornell Chinese Drama Society
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav navbar-right">
+              <li class="nav-item" id="home">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown" id="about">
+                <a class="nav-link dropdown-toggle" href="about.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  About Us
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="about.html">Overview</a>
+                  <a class="dropdown-item" href="about_executive_board.html">Executive Board</a>
+                  <a class="dropdown-item" href="about_past_executive_boards.html">Past Executive Boards</a>
+                  <a class="dropdown-item" href="about_constitution.html">Constitution</a>
+                  <a class="dropdown-item" href="about_contact.html">Contact Us</a>
+                </div>
+              </li>
+              <li class="nav-item" id="productions">
+                <a class="nav-link" href="productions.html">Productions</a>
+              </li>
+              <li class="nav-item dropdown" id="actitives">
+                <a class="nav-link dropdown-toggle" href="activities_overview.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Activities
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="activities_overview.html">Overview</a>
+                  <a class="dropdown-item" href="activities_external_relations.html">External Relations</a>
+                  <a class="dropdown-item" href="activities_visit_program.html">Distinguished Visitor Program</a>
+                  <a class="dropdown-item" href="activities_meetings.html">Meetings</a>
+                </div>
+              </li>
+              <li class="nav-item" id="news">
+                <a class="nav-link" href="news.html">News</a>
+              </li>
+              <li class="nav-item" id="alumni">
+                <a class="nav-link" href="alumni.html">Alumni</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+    <div class="contianer-fluid top">
+        <div class="row">
+          <div class="col-3">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <h5 class="nav-link" aria-controls="v-pills-home" aria-selected="true">About Us</h5>
+              <a class="nav-link active" id="v-pills-o-tab" href="about.html" aria-controls="v-pills-o" aria-selected="true">Overview</a>
+              <a class="nav-link" id="v-pills-eb-tab" href="about_executive_board.html" aria-controls="v-pills-eb" aria-selected="false">Executive Board</a>
+              <a class="nav-link" id="v-pills-peb-tab" href="about_past_executive_boards.html" aria-controls="v-pills-peb" aria-selected="false">Past Executive Boards</a>
+              <a class="nav-link" id="v-pills-c-tab" href="about_constitution.html" aria-controls="v-pills-c" aria-selected="false">Constitution</a>
+              <a class="nav-link" id="v-pills-cu-tab" href="about_contact.html" aria-controls="v-pills-cu" aria-selected="false">Contact Us</a>
+            </div>
+          </div>
+          <div class="col-9">
+              <div class="container">
+                <div class="card mb-3">
+                  <img class="card-img-top" src="images/sp17.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Overview of CCDS</h5>
+                    <p class="card-text">Cornell Chinese Drama Society, "Jingyuan" (Chinese: 境缘剧社) was founded in September 2014 by a group of drama enthusiasts pursuing their studies at Cornell University, Ithaca, New York. Through staging regular performances, including our flagship production every semester, we are committed to promoting theatre drama in Chinese language at Cornell University, to providing performing arts entertainment for the Chinese-speaking community (including language learners), and to diversifying the multi-cultural performing arts scene at Cornell.</p>
+                    
+                    <p class="card-text">The CCDS has established close relationships with fellow student theatre drama groups across U.S. universities. We organize regular exchanges and visits. The CCDS is proud to be a founding member of the <a href="http://www.actheatres.com" target="_blank">Association of Chinese Theatres</a>, an alliance of student-run Chinese theatre groups across universities in the United States.</p>
+                      
+                    <p class="card-text">We are a independent student organization registered with Cornell University.</p>
+                    
+                    <p class="card-text">境缘剧社成立于2014年秋季，前身为2013年秋季的“《雷雨》剧组”。自成立以来，境缘剧社以每学期一部戏的频率连续打造了多场精品话剧，取得热烈反响。境缘二字，意为台上之境源自台下之缘，形容舞台下的友谊与舞台上的表演不可分离。境缘剧社立足康奈尔大学，旨在凝聚话剧爱好者，传播中文语言魅力，丰富校园多元文化形式，打造中华艺术平台。</p>
+                    
+                    <p class="card-text">本社致力于同各校园剧社发展关系，积极推动各项实质交流，至今多次出访各剧社并接待各友好剧社、组织来访。我们是<a href="http://www.actheatres.com" target="_blank">北美戏剧联盟</a>的创始会员。</p>
+                      
+                    <p class="card-text">本社系注册于康奈尔大学的独立学生社团。</p>
+                      
+                    <p class="card-text"><small class="text-muted">Chinese Drama Society, Cornell</small></p>
+                      <p class="card-text"><small class="text-muted">Ithaca, NY</small></p>
+                  </div>
+                </div>
+              </div>
+          </div>    
+        </div>
+    </div>
+
+        
+    </body>
+</html>

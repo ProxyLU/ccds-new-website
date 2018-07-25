@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <title>Music</title>
+    <style>
+        
+        h5, p {
+            color:black;
+        }
+        
+        .carousel-caption {
+            bottom: -40px;
+            
+        }
+        
+        .sign{
+            fill: azure;
+        }
+        
+        .major{
+            fill: aqua; 
+        }
+        
+        .minor{
+            fill: aquamarine;
+        }
+        
+        .majorText, .minorText{
+            cursor: pointer;
+            fill:#ffffff;
+        }
+        
+        .major, .minor{
+            cursor:pointer;
+        }
+        
+        #C{
+            fill:lightskyblue;
+        }
+        
+        .marect{
+            fill:aqua;
+        }
+        
+        .mirect{
+            fill:aquamarine;
+        }
+        
+        .mirect, .marect{
+            width:30px;
+            height:30px;
+        }
+        
+        .rectTitle{
+            
+        }
+        
+        .col-sm{
+            background-color:#FFDE00;
+            border: solid #ffffff 2px;
+            text-align: center;
+            color:#ffffff;
+        }
+
+        .note{
+            cursor: pointer;
+            background-color: #FFFF00;
+        }
+        
+        #instr{
+            border: solid #ffffff 2px;
+            background-color: #CBD90F;
+            color:#ffffff;
+        }
+        
+        #submit{
+            border: solid #ffffff 2px;
+        }
+        
+        #chords{
+            border: solid #ffffff 2px;
+            background-color: #7FEB45;
+            color:#ffffff;
+        }
+    
+        .myBtn{
+            height:100%;
+            width: 100%;
+        }
+        
+        H1{
+            color:#FF9900;
+        }
+    </style>
+    </head>
+    <body>
+        <h1></h1>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+        
+        <div class="container">
+            <h1>MUSIC AI</h1>
+        </div>
+        
+        <div class="container">
+        <svg width="1000" height="550">
+        <g transform="translate(200, 100)">
+        <text class="rectTitle" x="0" y="20">Major:</text>
+        <rect class="marect" x="50" y="0"></rect>
+        <text class="rectTitle" x="0" y="70">Minor:</text>
+        <rect class="mirect" x="50" y="50"></rect>
+        </g>
+        <g transform="translate(500, 300)">
+        <text id="key" x="-40px" y="-20px" class="title">Key: 1=C</text>
+        <image xlink:href="images/natural.png" x="-30px" y="-20px" width="60" height="60"></image>    
+        </g>
+  	    <g id="graph" transform="translate(500, 300)">
+        </g>
+        </svg>
+        </div>
+    
+        
+        <div class="container">
+            <div id="chordInput">
+                <div class="row">
+                    <div id="instr" class="col-2">
+                        Chord(s) Selected
+                    </div>
+                    <div id="chords" class="col-8">
+                    </div>
+                    <div id="submit" class="col-2 btn-success">
+                        <button type="button" class="myBtn btn-success" onclick="submit()">Compose</button>
+                    </div>
+                </div>
+            </div>
+              <div class="row">
+                <div class="col-sm">1</div>
+                <div class="col-sm">2</div>
+                <div class="col-sm">3</div>
+                <div class="col-sm">4</div>
+                <div class="col-sm">5</div>
+                <div class="col-sm">6</div>
+                <div class="col-sm">7</div>
+                <div class="w-100"></div>
+                <div id="do" class="col-sm note" onmouseover="changeBack('do')"  onmouseout="resumeBack('do')" onclick="selectNote('do')">D</div>
+                <div id="re" class="col-sm note" onmouseover="changeBack('re')" onmouseout="resumeBack('re')" onclick="selectNote('re')">E</div>
+                <div id="mi" class="col-sm note" onmouseover="changeBack('mi')" onmouseout="resumeBack('mi')" onclick="selectNote('mi')">F</div>
+                <div id="fa" class="col-sm note" onmouseover="changeBack('fa')" onmouseout="resumeBack('fa')" onclick="selectNote('fa')">G</div>
+                <div id="so" class="col-sm note" onmouseover="changeBack('so')" onmouseout="resumeBack('so')" onclick="selectNote('so')">A</div>
+                <div id="la" class="col-sm note" onmouseover="changeBack('la')" onmouseout="resumeBack('la')"  onclick="selectNote('la')">B</div>
+                <div id="ti" class="col-sm note" onmouseover="changeBack('ti')" onmouseout="resumeBack('ti')" onclick="selectNote('ti')">C</div>
+              </div>
+        </div>        
+        
+        <script>
+            
+            //global variables
+            var scalesData= [], key = "C", chordInput, chords="";
+            
+            //arc generator
+            var minorGenerator = d3.arc()
+                .innerRadius(60)
+                .outerRadius(100)
+                .padAngle(.02)
+                .padRadius(100)
+                .cornerRadius(2);
+
+            
+            var majorArcGenerator = d3.arc()
+                .innerRadius(130)
+                .outerRadius(180)
+                .padAngle(.02)
+                .padRadius(100);
+
+            
+            var signArcGenerator = d3.arc()
+                .innerRadius(105)
+                .outerRadius(125)
+                .padAngle(.02)
+                .padRadius(100);
+            
+            //helper function
+            function selectNote(n){
+                chords = chords + " " + document.getElementById(n).innerHTML;
+                d3.select("#chords")
+                .text(chords);
+            }
+            
+            function changeBack(n){
+                $("#" + n).css("background-color", "#FF9900");
+            }
+            
+            function resumeBack(n){
+                $("#" + n).css("background-color", "#FFFF00");
+            }
+            
+            function appendScale(d){
+                var scale = scalesData[d.label];
+                d3.select("#" + "do")
+                .text(scale.do);
+                
+                d3.select("#" + "re")
+                .text(scale.re);
+                
+                d3.select("#" + "mi")
+                .text(scale.mi);
+                
+                d3.select("#" + "fa")
+                .text(scale.fa);
+                
+                d3.select("#" + "so")
+                .text(scale.so);
+                
+                d3.select("#" + "la")
+                .text(scale.la);
+                
+                d3.select("#" + "ti")
+                .text(scale.ti);
+            }
+            
+            //arc shape data
+            var arcData = [
+                {startAngle: -1/12* Math.PI, endAngle: 1/12* Math.PI, label:"C", class:"major", group:"natural"},
+                {startAngle: 1/12* Math.PI, endAngle: 3/12* Math.PI, label:"G", class:"major", group:"1sharp"},
+                {startAngle: 3/12* Math.PI, endAngle: 5/12* Math.PI, label:"D", class:"major", group:"2sharp"},
+                {startAngle: 5/12* Math.PI, endAngle: 7/12* Math.PI, label:"A", class:"major", group:"3sharp"},
+                {startAngle: 7/12* Math.PI, endAngle: 9/12* Math.PI, label:"E", class:"major", group:"4sharp"},
+                {startAngle: 9/12* Math.PI, endAngle: 10/12* Math.PI, label:"B", class:"major", group:"5sharp"},
+                {startAngle: 10/12* Math.PI, endAngle: 11/12* Math.PI, label:"C♭", class:"major", group:"7flat"},
+                {startAngle: 11/12* Math.PI, endAngle: 12/12* Math.PI, label:'F♯', class:"major", group:"6sharp"},
+                {startAngle: 12/12* Math.PI, endAngle: 13/12* Math.PI, label:'G♭', class:"major", group:"6flat"},
+                {startAngle: 13/12* Math.PI, endAngle: 14/12* Math.PI, label:'C♯', class:"major", group:"7sharp"},
+                {startAngle: 14/12* Math.PI, endAngle: 15/12* Math.PI, label:"D♭", class:"major", group:"5flat"},
+                {startAngle: 15/12* Math.PI, endAngle: 17/12* Math.PI, label:"A♭", class:"major", group:"4flat"},
+                {startAngle: 17/12* Math.PI, endAngle: 19/12* Math.PI, label:"E♭", class:"major", group:"3flat"},
+                {startAngle: 19/12* Math.PI, endAngle: 21/12* Math.PI, label:"B♭", class:"major", group:"2flat"},
+                {startAngle: 21/12* Math.PI, endAngle: 23/12* Math.PI, label:"F", class:"major", group:"1flat"},
+                {startAngle: -1/12* Math.PI, endAngle: 1/12* Math.PI, label:"a", class:"minor", group:"natural"},
+                {startAngle: 1/12* Math.PI, endAngle: 3/12* Math.PI, label:"e", class:"minor", group:"1sharp"},
+                {startAngle: 3/12* Math.PI, endAngle: 5/12* Math.PI, label:"b", class:"minor", group:"2sharp"},
+                {startAngle: 5/12* Math.PI, endAngle: 7/12* Math.PI, label:"f♯", class:"minor", group:"3sharp"},
+                {startAngle: 7/12* Math.PI, endAngle: 9/12* Math.PI, label:"c♯", class:"minor", group:"4sharp"},
+                {startAngle: 9/12* Math.PI, endAngle: 11/12* Math.PI, label:"g♯", class:"minor", group:"5sharp"},
+                {startAngle: 11/12* Math.PI, endAngle: 12/12* Math.PI, label:"d♯", class:"minor", group:"6sharp"},
+                {startAngle: 12/12* Math.PI, endAngle: 13/12* Math.PI, label:"e♭", class:"minor", group:"6flat"},
+                {startAngle: 13/12* Math.PI, endAngle: 15/12* Math.PI, label:"b♭", class:"minor", group:"5flat"},
+                {startAngle: 15/12* Math.PI, endAngle: 17/12* Math.PI, label:"f", class:"minor", group:"4flat"},
+                {startAngle: 17/12* Math.PI, endAngle: 19/12* Math.PI, label:"c", class:"minor", group:"3flat"},
+                {startAngle: 19/12* Math.PI, endAngle: 21/12* Math.PI, label:"g", class:"minor", group:"2flat"},
+                {startAngle: 21/12* Math.PI, endAngle: 23/12* Math.PI, label:"d", class:"minor", group:"1flat"},
+                {startAngle: -1/12* Math.PI, endAngle: 1/12* Math.PI, label:"♮", class:"sign", group:"sign"},
+                {startAngle: 1/12* Math.PI, endAngle: 3/12* Math.PI, label:"1♯", class:"sign", group:"sign"},
+                {startAngle: 3/12* Math.PI, endAngle: 5/12* Math.PI, label:"2♯", class:"sign", group:"sign"},
+                {startAngle: 5/12* Math.PI, endAngle: 7/12* Math.PI, label:"3♯", class:"sign", group:"sign"},
+                {startAngle: 7/12* Math.PI, endAngle: 9/12* Math.PI, label:"4♯", class:"sign", group:"sign"},
+                {startAngle: 9/12* Math.PI, endAngle: 10/12* Math.PI, label:"5♯", class:"sign", group:"sign"},
+                {startAngle: 10/12* Math.PI, endAngle: 11/12* Math.PI, label:"7♭", class:"sign", group:"sign"},
+                {startAngle: 11/12* Math.PI, endAngle: 12/12* Math.PI, label:"6♯", class:"sign", group:"sign"},
+                {startAngle: 12/12* Math.PI, endAngle: 13/12* Math.PI, label:"6♭", class:"sign", group:"sign"},
+                {startAngle: 13/12* Math.PI, endAngle: 14/12* Math.PI, label:"7♯", class:"sign", group:"sign"},
+                {startAngle: 14/12* Math.PI, endAngle: 15/12* Math.PI, label:"5♭", class:"sign", group:"sign"},
+                {startAngle: 15/12* Math.PI, endAngle: 17/12* Math.PI, label:"4♭", class:"sign", group:"sign"},
+                {startAngle: 17/12* Math.PI, endAngle: 19/12* Math.PI, label:"3♭", class:"sign", group:"sign"},
+                {startAngle: 19/12* Math.PI, endAngle: 21/12* Math.PI, label:"2♭", class:"sign", group:"sign"},
+                {startAngle: 21/12* Math.PI, endAngle: 23/12* Math.PI, label:"1♭", class:"sign", group:"sign"},
+            ];
+            
+            //function that send front-end data to the back-end
+            function submit(){
+                
+            }
+            
+            function clicked(d){
+                var color = "lightskyblue";
+                if (d.group != "sign"){
+                    if (d.class == "minor"){
+                        color = "#89E894";
+                    }
+                    d3.select("image")
+                    .attr("xlink:href", "images/" + d.group + ".png");
+                    $(".major").css("fill", "aqua");
+                    $(".minor").css("fill", "aquamarine");
+                    $("#" + d.label).css("fill", color);
+                    $("#chords").text("");
+                    
+                    chords = "";
+                    
+                    d3.select("#key")
+                    .text("Key: 1=" + d.label);
+                    
+                    key = d.label;
+                    
+                    appendScale(d);
+                }
+            }
+            
+        
+            
+            // Create a path element and set its d attribute
+            d3.select("#graph")
+                .selectAll('path')
+                .data(arcData)
+                .enter()
+                .append('path')
+                .attr("class", function(d){return d.class + " " + d.group;})
+                .attr("id", function(d){return d.label})
+                .on("click", clicked)
+                .attr('d', function(d){
+                var arc; 
+                if(d.class == "minor"){ 
+                    arc = minorGenerator({startAngle: d.startAngle, endAngle: d.endAngle});
+                } else if (d.class == "major"){ 
+                    arc = majorArcGenerator({startAngle: d.startAngle, endAngle: d.endAngle});
+                } else {
+                    arc = signArcGenerator({startAngle: d.startAngle, endAngle: d.endAngle});
+                };
+                return arc;
+                });
+            
+            // Add labels, using .centroid() to position
+            d3.select("#graph")
+                .selectAll('text')
+                .data(arcData)
+                .enter()
+                .append('text')
+                .on("click", clicked)
+                .each(function(d) {
+                var centroid; 
+                if(d.class == "minor"){ 
+                    centroid = minorGenerator.centroid(d);
+                } else if (d.class == "major"){ 
+                    centroid = majorArcGenerator.centroid(d);
+                } else {
+                    centroid = signArcGenerator.centroid(d);
+                };
+                
+                d3.select(this)
+                    .attr('x', centroid[0])
+                    .attr('y', centroid[1])
+                    .attr('dx', "-5px")
+                    .attr('dy', "5px")
+                    .text(d.label)
+                    .attr("class", d.class + "Text");
+                });
+            
+            
+            //import the dataset and process the raw data
+            var parseRow = function(row) {
+                return row;
+            }
+            
+            d3.queue()
+            .defer(d3.csv, "music_scale.csv", parseRow)
+            .await(callback);
+            
+            function callback(error, scale_info){
+                scale_info.forEach(function(d){
+                    if ((d.Scale == "major") || (d.Info == "natural")){
+                        scalesData[d.Name] = d;
+                    }
+                })
+            }
+            
+        </script>

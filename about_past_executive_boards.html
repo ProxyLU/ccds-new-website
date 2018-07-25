@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <title>CORNELL CHINESE DRAMA SOCIETY</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=cursive">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=fantasy">
+    <style>
+
+        .carousel-caption {
+            
+        }
+        
+        .title{
+            text-align: center;
+        }
+        
+        #banner{
+            
+        }
+        
+        footer img{
+            width: 50px;
+            height: 50px;
+        }
+        
+        .icon_box{
+            width: 50%;
+        }
+    
+        .home_info{
+            background-color: #ffffff;
+        }
+        
+        .caption{
+            margin-top: -100px;
+            color:white;
+        }
+        
+        .year_timeline{
+            writing-mode:bt-lr;
+            -webkit-appearance:slider-vertical;    
+            height: 300px;
+        }
+        
+        .timeline {
+            list-style: none;
+            padding: 20px 0 20px;
+            position: relative;
+        }
+        
+        .timeline{
+            width: 3px;
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            content: " ";
+            width: 3px;
+            background-color: #eeeeee;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .tl_left > .tl_item{
+            float:right;
+            margin-bottom:200px;
+        }
+        
+        .tl_right > .tl_item{
+            margin-top: 200px;
+        }
+        
+        .top{
+            margin-top: 100px;
+        }
+        
+        .btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+        
+        .hidden{
+            display: none;
+        }
+        
+        
+    </style>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script>
+    
+        function toggle(event_id){
+            var line = document.getElementById("line");
+            
+            var detail = document.getElementById(event_id);
+            var button_id = "b" + event_id;
+            var button = document.getElementById(button_id);
+            
+            if (detail.style.display == "none" ){
+				detail.style.display = "block";
+                button.innerHTML = "Hide ∧";
+            }else{
+				detail.style.display = "none";
+                button.innerHTML = "View ∨";
+            }
+            
+            var left = document.getElementById("timeline_left");
+            var right = document.getElementById("timeline_right");
+            var l_height = left.offsetHeight;
+            var r_height = right.offsetHeight;
+            
+            if (l_height >= r_height){
+                var maxh = l_height + "px";
+            } else {
+                var maxh = r_height + "px";
+            }
+            
+            line.style.height = maxh;
+        }
+        
+        function tl_switch(){
+            
+            $hidden = $('.hidden');
+            
+            $hidden.css({
+                display:block
+            });
+            
+            $('.visible').css({
+                display:none
+            });
+            
+        }
+        
+        $(document).ready(function(){
+            $("#tl_to_left").click(function(){
+                $(".visible").css("display", "none");
+                $(".hidden").css("display", "block");
+            });
+            
+            $("#tl_to_right").click(function(){
+                $(".visible").css("display", "block");
+                $(".hidden").css("display", "none");
+            });
+            
+        });
+        
+        
+    </script>
+    </head>
+    <body>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#about").addClass("active");
+            });
+        </script>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">
+            <img src="images/icon1.png" width="50" height="50" class="d-inline-block align-top" alt="icon">
+          </a>
+          <a class="navbar-brand" href="#">
+              Cornell Chinese Drama Society
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav navbar-right">
+              <li class="nav-item" id="home">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown" id="about">
+                <a class="nav-link dropdown-toggle" href="about.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  About Us
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="about.html">Overview</a>
+                  <a class="dropdown-item" href="about_executive_board.html">Executive Board</a>
+                  <a class="dropdown-item" href="about_past_executive_boards.html">Past Executive Boards</a>
+                  <a class="dropdown-item" href="about_constitution.html">Constitution</a>
+                  <a class="dropdown-item" href="about_contact.html">Contact Us</a>
+                </div>
+              </li>
+              <li class="nav-item" id="productions">
+                <a class="nav-link" href="productions.html">Productions</a>
+              </li>
+              <li class="nav-item dropdown" id="actitives">
+                <a class="nav-link dropdown-toggle" href="activities_overview.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Activities
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="activities_overview.html">Overview</a>
+                  <a class="dropdown-item" href="activities_external_relations.html">External Relations</a>
+                  <a class="dropdown-item" href="activities_visit_program.html">Distinguished Visitor Program</a>
+                  <a class="dropdown-item" href="activities_meetings.html">Meetings</a>
+                </div>
+              </li>
+              <li class="nav-item" id="news">
+                <a class="nav-link" href="news.html">News</a>
+              </li>
+              <li class="nav-item" id="alumni">
+                <a class="nav-link" href="alumni.html">Alumni</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+    <div class="contianer-fluid top">
+        <div class="row">
+          <div class="col-3">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <h5 class="nav-link" role="tab" aria-controls="v-pills-home" aria-selected="true">About Us</h5>
+              <a class="nav-link" id="v-pills-o-tab" href="about.html" aria-controls="v-pills-o" aria-selected="true">Overview</a>
+              <a class="nav-link" id="v-pills-eb-tab" href="about_executive_board.html" aria-controls="v-pills-eb" aria-selected="false">Executive Board</a>
+              <a class="nav-link active" id="v-pills-peb-tab" href="about_past_executive_boards.html" aria-controls="v-pills-peb" aria-selected="false">Past Executive Boards</a>
+              <a class="nav-link" id="v-pills-c-tab" href="about_constitution.html" aria-controls="v-pills-c" aria-selected="false">Constitution</a>
+              <a class="nav-link" id="v-pills-cu-tab" href="about_contact.html" aria-controls="v-pills-cu" aria-selected="false">Contact Us</a>
+            </div>
+          </div>
+          <div class="col-9">
+              <div class="container">
+                  <div class="card mb-3">
+                      <div class="card-header bg-transparent">
+                          <h5 class="about_eb_title">List of Presidents of CCDS</h5>
+                          <button id="bitem1" class="detail_button btn btn-outline-secondary btn-sm" onclick="toggle('item1')">View ∨</button>
+                      </div>
+                      <div class="card-body" id="item1" style="display:none">
+                        <div class="container">
+                            <div class="card-group">
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Danyang Han (韩丹阳)</h5>
+                                  <p class="card-text">AY 2018–19</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 19'</strong></p>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Haoxing Pu (蒲昊星)</h5>
+                                  <p class="card-text">AY 2017–18</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 19'</strong></p>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Yilin Liu (刘宜霖)</h5>
+                                  <p class="card-text">AY 2016–17</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 19'</strong></p>
+                                </div>
+                              </div>
+                            </div>
+                          <div class="card-group">
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Haotian Liu (刘昊天),<br>Founding Member, CCDS</h5>
+                                  <p class="card-text">AY 2015–16</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 17'</strong></p>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Qingyun Xie (谢清昀), <br>Co-founder, CCDS</h5>
+                                  <p class="card-text">Spring 2015(Acting)</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 17'</strong></p>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Liang Zhao (赵　亮), <br>Co-founder, CCDS</h5>
+                                  <p class="card-text">AY 2014–15</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 15'</strong></p>
+                                </div>
+                              </div>
+                          </div>
+                          </div>
+                          </div>
+                        </div>
+                 
+                  <div class="card mb-3">
+                      <div class="card-header bg-transparent">
+                          <h5 class="about_eb_title">List of Directors of CCDS Productions</h5>
+                          <button id="bitem2" class="detail_button btn btn-outline-secondary btn-sm" onclick="toggle('item2')">View ∨</button>
+                      </div>
+                      <div class="card-body" id="item2" style="display:none">
+                          <div class="container">
+                            <div class="card-group">
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Yutong Wu (吴雨桐)</h5>
+                                  <p class="card-text">Fall 2018</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 19'</strong></p>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Sumeng Wang (王粟濛)</h5>
+                                  <p class="card-text">Spring 2018</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 18'</strong></p>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Pengfei Zhang (张鹏飞)</h5>
+                                  <p class="card-text">Spring 2018 (Workshop Production)</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell</strong></p>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Yong Zhang (张　雍)</h5>
+                                  <p class="card-text">Fall 2017</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell</strong></p>
+                                </div>
+                              </div>
+                            </div>
+                          <div class="card-group">
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Yu Gao (高　宇)</h5>
+                                  <p class="card-text">Fall 2017 (Workshop Production)</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 20'</strong></p>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Xiaoning Wang (王晓宁), Founding Member, CCDS</h5>
+                                  <p class="card-text">Spring 2017</p>
+                                  <p class="card-text">Fall 2016(Workshop Production)</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 18'</strong></p>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Haoxing Pu (蒲昊星)</h5>
+                                  <p class="card-text">Fall 2016</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 19'</strong></p>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Hui Tong (童　辉), Founding Member, CCDS</h5>
+                                  <p class="card-text">Spring 2016</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 18'</strong></p>
+                                </div>
+                              </div>
+                          </div>
+                              <div class="card-group">
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Tong Lu (陆　通), Founding Member, CCDS</h5>
+                                  <p class="card-text">Fall 2015</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 15'</strong></p>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Jenny Yue Zeng (曾　月), Founding Member, CCDS</h5>
+                                  <p class="card-text">Spring 2015</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 17'</strong></p>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title">Liang Zhao (赵　亮), Co-founder, CCDS</h5>
+                                  <p class="card-text">Fall 2014</p>
+                                  <p class="card-text"><strong class="text-muted">Cornell 15'</strong></p>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-body">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                  </div>
+                        
+                  <div class="card mb-3">
+                      <div class="card-header bg-transparent">
+                          <h5 class="about_eb_title">4th Executive Board, Academic Year 2017–18</h5>
+                          <button id="bitem3" class="detail_button btn btn-outline-secondary btn-sm" onclick="toggle('item3')">View ∨</button>
+                      </div>
+                      <div class="card-body" id="item3" style="display:none">
+                        <div class="container text-center">
+                          <div class="row">
+                            <div class="col col-md">
+                              <h5 class="about_name">Haoxing Pu (蒲昊星)</h5>
+                              <p calss="about_position">President</p>
+                            </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Hui Tong (童　辉), Founding Member, CCDS</h5>
+                                  <p calss="about_position">Vice-President<br/>(General Affairs)</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Xiaoning Wang (王晓宁), Founding Member, CCDS</h5>
+                                  <p calss="about_position">Vice-President<br/>(External Affairs)</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Xinyi Wan (万心仪)</h5>
+                                  <p calss="about_position">Treasurer</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Qiawen Zhang (张洽闻)</h5>
+                                  <p calss="about_position">Asst. Treasurer</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Yunqin Wang (王韵沁)</h5>
+                                  <p calss="about_position">Public Relations Chair</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Zhang, Pengfei (张鹏飞)</h5>
+                                  <p calss="about_position">Artistic Director</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Yu Gao (高　宇)</h5>
+                                  <p calss="about_position">Asst. Artistic Director</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Yixuan Wang (王逸轩)</h5>
+                                  <p calss="about_position">Technical Director</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Shuhao Qing (庆舒豪)</h5>
+                                  <p calss="about_position">Asst. Technical Director</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Danyang Han (韩丹阳)</h5>
+                                  <p calss="about_position">Social Chair</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Yuchang Zhou (周郁畅)</h5>
+                                  <p calss="about_position">Design Director</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Zhang, Yong (张　雍)</h5>
+                                  <p calss="about_position">Standing Member</p>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              
+                  <div class="card mb-3">
+                      <div class="card-header bg-transparent">
+                          <h5 class="about_eb_title">3rd Executive Board, Academic Year 2016–17</h5>
+                          <button id="bitem4" class="detail_button btn btn-outline-secondary btn-sm" onclick="toggle('item4')">View ∨</button>
+                      </div>
+                      <div class="card-body text-center" id="item4" style="display:none">
+                          <img class="card-img-top" src="http://os_extranet_images.s3.amazonaws.com/397617_original.jpg" alt="3rd Executive Board">
+                          <p class="card-text"><small class="text-muted">Group Photograph of Executive Board.Front row, from left: Yixiao Zhang, Haoxing Pu, Yilin Liu, Xiaoning Wang, Jessica Wu<br/>
+                          Back row, from left: Xinyi Wan, Yunqin Wang, Danyang Han, Yixuan Wang, Lu Yang</small></p>
+                          <div class="container">
+                          <div class="row">
+                            <div class="col col-md">
+                              <h5 class="about_name">Yilin Liu (刘宜霖)</h5>
+                              <p calss="about_position">President</p>
+                            </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Haoxing Pu (蒲昊星)</h5>
+                                  <p calss="about_position">Vice-President<br/>(General Affairs)</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">(Vacant)</h5>
+                                  <p calss="about_position">Vice-President<br/>(External Affairs)</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Yixiao Zhang (张亦潇)</h5>
+                                  <p calss="about_position">Treasurer</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Xiaoning Wang (王晓宁), Founding Member, CCDS (concurrent appointment)</h5>
+                                  <p calss="about_position">Asst. Treasurer</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Jessica Wu (吴　律)</h5>
+                                  <p calss="about_position">Secretary</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Lu Yang (杨　璐)</h5>
+                                  <p calss="about_position">Publicity Co-Chairs</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Yunqin Wang (王韵沁)</h5>
+                                  <p calss="about_position">Publicity Co-Chairs</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Jessica Wu (吴　律) (concurrent appointment)</h5>
+                                  <p calss="about_position">Outreach Chair</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Xiaoning Wang (王晓宁), Founding Member, CCDS</h5>
+                                  <p calss="about_position">Artistic Director</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Xinyi Wan (万心仪)</h5>
+                                  <p calss="about_position">Asst. Artistic Director</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Yixuan Wang (王逸轩)</h5>
+                                  <p calss="about_position">Technical Director</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Danyang Han (韩丹阳)</h5>
+                                  <p calss="about_position">Standing Member</p>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              
+                  <div class="card mb-3">
+                      <div class="card-header bg-transparent">
+                          <h5 class="about_eb_title">2nd Executive Board, Academic Year 2015–16</h5>
+                          <button id="bitem5" class="detail_button btn btn-outline-secondary btn-sm" onclick="toggle('item5')">View ∨</button>
+                      </div>
+                      <div class="card-body  text-center" id="item5" style="display:none">
+                          <img class="card-img-top" src="http://os_extranet_images.s3.amazonaws.com/386886_original.jpg" alt="201">
+                          <p class="card-text"><small class="text-muted">Group Photograph of Executive Board.Front row, from left: Yixiao Zhang, Qingyun Xie, Haotian Liu, Xiaoning Wang, Danyang Han<br/>
+                          Back row, from left: Haoxing Pu, Yilin Liu, Jiaxi Lu, Weizhen Ji, Lu Yang, Jessica Wu</small></p>
+                          <div class="container">
+                          <div class="row">
+                            <div class="col col-md">
+                              <h5 class="about_name">Haotian Liu (刘昊天), Founding Member, CCDS</h5>
+                              <p calss="about_position">President</p>
+                            </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Qingyun Xie (谢清昀), Co-founder, CCDS (Acting, concurrent appointment)</h5>
+                                  <p calss="about_position">Vice-President<br/>(General Affairs)</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Qingyun Xie (谢清昀), Co-founder, CCDS</h5>
+                                  <p calss="about_position">Vice-President<br/>(External Affairs)</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Xiaoning Wang (王晓宁), Founding Member, CCDS (Acting, concurrent appointment)</h5>
+                                  <p calss="about_position">Treasurer</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Danyang Han (韩丹阳) (External Liaison)</h5>
+                                  <p calss="about_position">Standing Member</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Weizhen Ji (季唯真) (Publicity)</h5>
+                                  <p calss="about_position">Standing Member</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Yilin Liu (刘宜霖) (Artistic Affairs)</h5>
+                                  <p calss="about_position">Standing Member</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Jiaxi Lu (陆泇希) (Outreach)</h5>
+                                  <p calss="about_position">Standing Member</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Haoxing Pu (蒲昊星) (Artistic Affairs)</h5>
+                                  <p calss="about_position">Standing Member</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Jessica Wu (吴　律) (Outreach)</h5>
+                                  <p calss="about_position">Standing Member</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Lu Yang (杨　璐) (Publicity)</h5>
+                                  <p calss="about_position">Standing Member</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Yixiao Zhang (张亦潇) (Treasury)</h5>
+                                  <p calss="about_position">Co-Publicity Chair</p>
+                              </div>
+                              <div class="col col-md">
+                              </div>
+                          </div>
+                        </div>
+                          
+                        <h5>1st Executive Board</h5>
+                        <div class="container">
+                          <div class="row">
+                            <div class="col col-md">
+                              <h5 class="about_name">Haotian Liu (刘昊天), Founding Member, CCDS</h5>
+                              <p calss="about_position">President</p>
+                            </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Jenny Yue Zeng (曾　月), Founding Member, CCDS</h5>
+                                  <p calss="about_position">Vice-President<br/>(General Affairs)</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Qingyun Xie (谢清昀), Co-founder, CCDS</h5>
+                                  <p calss="about_position">Vice-President<br/>(External Affairs)</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Jing Zheng (郑　婧)</h5>
+                                  <p calss="about_position">Treasurer</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Jenny Yue Zeng (曾　月), Founding Member, CCDS (concurrent appointment)</h5>
+                                  <p calss="about_position">Artistic Director</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Wenrui Xu (许文睿)</h5>
+                                  <p calss="about_position">Stage Manager</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Naxin Chen (陈纳新)</h5>
+                                  <p calss="about_position">Technical Director</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Jiaming Zhang (张佳茗)</h5>
+                                  <p calss="about_position">Publicity Chair</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Jing Zheng (郑　婧)</h5>
+                                  <p calss="about_position">Publicity Chair</p>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+            
+                  <div class="card mb-3">
+                      <div class="card-header bg-transparent">
+                          <h5 class="about_eb_title">1st Executive Board, Academic Year 2014–15 (Co-founders, CCDS)</h5>
+                          <button id="bitem6" class="detail_button btn btn-outline-secondary btn-sm" onclick="toggle('item6')">View ∨</button>
+                      </div>
+                      <div class="card-body" id="item6" style="display:none">
+                          <div class="container text-center">
+                          <div class="row">
+                            <div class="col col-md">
+                              <h5 class="about_name">Liang Zhao (赵　亮), Co-founder, CCDS</h5>
+                              <p calss="about_position">President</p>
+                            </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Qingyun Xie (谢清昀), Co-founder, CCDS</h5>
+                                  <p calss="about_position">Vice-President</p>
+                              </div>
+                              <div class="col col-md">
+                                  <h5 class="about_name">Tianze Pan (潘天泽), Co-founder, CCDS</h5>
+                                  <p calss="about_position">Secretary</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-md">
+                                  <h5 class="about_name">Bicheng Nie (聂碧澄), Co-founder, CCDS</h5>
+                                  <p calss="about_position">Treasurer</p>
+                              </div>
+                              <div class="col col-md">
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+        </div>
+        </div>
+        </div> 
+    </body>
+</html>

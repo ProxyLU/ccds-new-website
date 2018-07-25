@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <title>CORNELL CHINESE DRAMA SOCIETY</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=cursive">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=fantasy">
+    <style>
+
+        .carousel-caption {
+            
+        }
+        
+        .title{
+            text-align: center;
+        }
+        
+        #banner{
+            
+        }
+        
+        footer img{
+            width: 50px;
+            height: 50px;
+        }
+        
+        .icon_box{
+            width: 50%;
+        }
+    
+        .home_info{
+            background-color: #ffffff;
+        }
+        
+        .caption{
+            margin-top: -100px;
+            color:white;
+        }
+        
+        .year_timeline{
+            writing-mode:bt-lr;
+            -webkit-appearance:slider-vertical;    
+            height: 300px;
+        }
+        
+        .timeline {
+            list-style: none;
+            padding: 20px 0 20px;
+            position: relative;
+        }
+        
+        .timeline{
+            width: 3px;
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            content: " ";
+            width: 3px;
+            background-color: #eeeeee;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .tl_left > .tl_item{
+            float:right;
+            margin-bottom:200px;
+        }
+        
+        .tl_right > .tl_item{
+            margin-top: 200px;
+        }
+        
+        .top{
+            margin-top: 100px;
+        }
+        
+        .btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+        
+        .hidden{
+            display: none;
+        }
+        
+        #navbar-example3 {
+  position: relative;
+}
+        .alumni_img{
+            
+        }
+        
+        #trustees_card{
+            
+        }
+        
+    </style>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script>
+    
+        function toggle(event_id){
+            var line = document.getElementById("line");
+            
+            var detail = document.getElementById(event_id);
+            var button_id = "b" + event_id;
+            var button = document.getElementById(button_id);
+            
+            if (detail.style.display == "none" ){
+				detail.style.display = "block";
+                button.innerHTML = "Hide ∧";
+            }else{
+				detail.style.display = "none";
+                button.innerHTML = "Read more ∨";
+            }
+            
+            var left = document.getElementById("timeline_left");
+            var right = document.getElementById("timeline_right");
+            var l_height = left.offsetHeight;
+            var r_height = right.offsetHeight;
+            
+            if (l_height >= r_height){
+                var maxh = l_height + "px";
+            } else {
+                var maxh = r_height + "px";
+            }
+            
+            line.style.height = maxh;
+        }
+        
+        function tl_switch(){
+            
+            $hidden = $('.hidden');
+            
+            $hidden.css({
+                display:block
+            });
+            
+            $('.visible').css({
+                display:none
+            });
+            
+        }
+        
+        $(document).ready(function(){
+            $("#tl_to_left").click(function(){
+                $(".visible").css("display", "none");
+                $(".hidden").css("display", "block");
+            });
+            
+            $("#tl_to_right").click(function(){
+                $(".visible").css("display", "block");
+                $(".hidden").css("display", "none");
+            });
+            
+        });
+        
+        
+    </script>
+    </head>
+    <body>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#alumni").addClass("active");
+            });
+        </script>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">
+            <img src="images/icon1.png" width="50" height="50" class="d-inline-block align-top" alt="icon">
+          </a>
+          <a class="navbar-brand" href="#">
+              Cornell Chinese Drama Society
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav navbar-right">
+              <li class="nav-item" id="home">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown" id="about">
+                <a class="nav-link dropdown-toggle" href="about.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  About Us
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="about.html">Overview</a>
+                  <a class="dropdown-item" href="about_executive_board.html">Executive Board</a>
+                  <a class="dropdown-item" href="about_past_executive_boards.html">Past Executive Boards</a>
+                  <a class="dropdown-item" href="about_constitution.html">Constitution</a>
+                  <a class="dropdown-item" href="about_contact.html">Contact Us</a>
+                </div>
+              </li>
+              <li class="nav-item" id="productions">
+                <a class="nav-link" href="productions.html">Productions</a>
+              </li>
+              <li class="nav-item dropdown" id="actitives">
+                <a class="nav-link dropdown-toggle" href="activities_overview.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Activities
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="activities_overview.html">Overview</a>
+                  <a class="dropdown-item" href="activities_external_relations.html">External Relations</a>
+                  <a class="dropdown-item" href="activities_visit_program.html">Distinguished Visitor Program</a>
+                  <a class="dropdown-item" href="activities_meetings.html">Meetings</a>
+                </div>
+              </li>
+              <li class="nav-item" id="news">
+                <a class="nav-link" href="news.html">News</a>
+              </li>
+              <li class="nav-item" id="alumni">
+                <a class="nav-link" href="alumni.html">Alumni</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+    <div class="contianer-fluid top">
+        
+        <div class="row">
+  <div class="col-3">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <h5 class="nav-link" role="tab" aria-controls="v-pills-home" aria-selected="true">Alumni</h5>
+      <a class="nav-link active" id="v-pills-overview-tab" data-toggle="pill" href="#v-pills-overview" role="tab" aria-controls="v-pills-overview" aria-selected="true">Overview</a>
+      <a class="nav-link" id="v-pills-trustees-tab" data-toggle="pill" href="#v-pills-trustees" role="tab" aria-controls="v-pills-trustees" aria-selected="false">Trustees</a>
+      <a class="nav-link" id="v-pills-membership-tab" data-toggle="pill" href="#v-pills-membership" role="tab" aria-controls="v-pills-membership" aria-selected="false">Membership</a>
+      <a class="nav-link" id="v-pills-constitution-tab" data-toggle="pill" href="#v-pills-constitution" role="tab" aria-controls="v-pills-constitution" aria-selected="false">Constitution</a>
+      <a class="nav-link" id="v-pills-giving-tab" data-toggle="pill" href="#v-pills-giving" role="tab" aria-controls="v-pills-giving" aria-selected="false">Giving</a>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-pane fade show active" id="v-pills-overview" role="tabpanel" aria-labelledby="v-pills-overview-tab">
+        <div class="container">
+        <div class="card mb-3">
+          <img class="card-img-top" src="images/sp17.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">CCDS Alumni Association</h5>
+            <p class="card-text"><span class="text_highlight">Cornell Chinese Drama Society Alumni Association (Chinese: 境缘剧社校友会)</span> is a informal network of alumni of the CCDS.</p>
+
+			<p class="card-text">CCDS Alumni Association became operational on Feb. 19, 2016. An inauguration ceremony was held on Apr. 16, 2016. (<a href="http://orgsync.rso.cornell.edu/org/chdramasoc/news_20160416_alumni">Read the report here</a>.)</p>
+              
+            <h5 class="card-title">Objectives</h5>
+            
+            <p class="card-text">The objectives of the Alumni Association are as follows:</p>
+
+			<ul>
+				<li>To serve as a network for the ex-members of Cornell Chinese Drama Society (hereinafter referred to as &ldquo;Society&rdquo;) who have graduated from Cornell University, to bond, to interact and to sustain friendships;</li>
+				<li>To encourage alumni to compassionately give back to the Society;</li>
+				<li>To pool the resources offered by the Society alumni for the benefit of the Society, current members of the Society and its alumni.</li>
+			</ul>
+              
+            <h5 class="card-title">Activities</h5>
+            
+            <p class="card-text">As an informal network, the CCDS Alumni Association seeks to maintain bonds among alumni, and to connect alumni and current members. The CCDS Alumni Association facilitates the connection between the alumni and the CCDS through regular visits and conference calls.</p>
+              
+            <p class="card-text"><small class="text-muted">Cornell Chinese Drama Society<br/>Ithaca, NY</small></p>
+    
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="v-pills-trustees" role="tabpanel" aria-labelledby="v-pills-trustees-tab">
+          <div class="container">
+          <h3>Trustees of CCDS</h3>
+          <div id="trustees_card" class="card-deck" style="width:80%;">
+            <div class="card text-center" style="width:18em;">
+              <img class="card-img-top" src="http://os_extranet_images.s3.amazonaws.com/388090_original.jpg" alt="Zhao Liang">
+              <div class="card-body">
+                <h5 class="card-title">Zhao, Liang (赵　亮)</h5>
+                <p class="card-text">Co-founder, CCDS<br/>
+				  Founding President (2014 &ndash; 15)<br/>
+                  Director of Fall 2013 and Fall 2014 Productions<br/>
+				  B.S. (Cornell), 2015
+                </p>
+              </div>
+            </div>
+            <div class="card text-center" style="width:18em;">
+              <img class="card-img-top" src="http://os_extranet_images.s3.amazonaws.com/388089_original.jpg" alt="Lu Tong">
+              <div class="card-body">
+                <h5 class="card-title">Lu, Tong (陆　通)</h5>
+                <p class="card-text">Founding Member, CCDS<br/>
+				  Director of Fall 2015 Production<br/>
+                  M.P.S. (Cornell), 2015
+                </p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+      <div class="tab-pane fade" id="v-pills-membership" role="tabpanel" aria-labelledby="v-pills-membership-tab">
+          <div class="container">
+          <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Membership of the Alumni Association</h5>
+              <p class="card-text">Membership is open to all alumni and friends of the Cornell Chinese Drama Society. Please contact CCDS at chdramasoc@cornell.edu.</p>
+              </div>
+          </div>
+          </div>
+      </div>
+      <div class="tab-pane fade" id="v-pills-constitution" role="tabpanel" aria-labelledby="v-pills-constitution-tab">
+          <div class="container">
+          <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Constitution of the Alumni Association</h5>
+              <p class="card-text">The <span style="font-style:italic">Constitution of the Cornell Chinese Drama Society Alumni Association</span> was promulgated on Feb. 19, 2016. Please click <a href="http://os_extranet_files_test.s3.amazonaws.com/35058_84192_Alumni_Association_Constitution.pdf" target="_blank">here</a> to view.</p>
+              </div>
+          </div>
+          </div>
+      </div>
+      <div class="tab-pane fade" id="v-pills-giving" role="tabpanel" aria-labelledby="v-pills-giving-tab">
+          <div class="container">
+          <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Giving to CCDS</h5>
+              <p class="card-text">Thank you for your interest in contributing to the Cornell Chinese Drama Society. Your gift will make a difference to CCDS.</p>
+              
+              <p class="card-text">Gifts may be made through the gift account at Cornell University set up by the CCDS Alumni Association. Please contact any of the <a href="http://orgsync.rso.cornell.edu/org/chdramasoc/alumni_trustees">Trustees</a> on how to proceed with this gift.</p>
+              </div>
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>  
+    </div>
+    </body>
+</html>

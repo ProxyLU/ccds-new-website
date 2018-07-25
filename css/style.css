@@ -1,0 +1,616 @@
+
+.navbar{
+    background-color: darkred;
+}
+/*
+#banner{
+    height: 150px;
+}
+
+#banner img{
+    height: 50px;
+    float:left;
+}
+*/
+
+/*
+#top{
+    width: 100%;
+    position: fixed;
+    top:0px;
+}
+*/
+
+
+/*
+#top_nav{
+    background-color: #ffffff;
+    margin-right: 0px;
+    height: 100px;
+    border-bottom: solid 1px lightgrey;
+}
+*/
+
+#top{
+    color:#ffffff;
+}
+
+#top_nav{
+    
+}
+
+#icon_wrapper{
+    height: 100px;
+}
+
+#icon_wrapper img{
+    margin-left: 50px;
+    height:100px;
+    float: left;
+}
+
+
+#title{
+    padding-top: 5px;
+}
+
+
+#span_wrapper{
+    margin-top: -80px;
+    float:right;
+}
+
+#top_nav span{
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.topnav_span a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#banner{
+    background: url('../images/sp17.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment:fixed;
+    background-position: top;
+}
+
+#container_banner img{
+    width: 100%;
+    height: 600px;
+    margin-top: 100px;
+}
+
+#introw{
+    display: block;
+    height:200px;
+    width: 50%;
+    background: white;
+    margin-right: auto;
+    margin-left: auto;
+    opacity: 0.6;
+}
+
+#intro_wrapper{
+    padding-top: 150px;
+    height: 600px;
+}
+
+#introduction{
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    height: auto;
+    width: 50%;
+    left: auto;
+    margin-top: -165px;
+    /*margin-left: 50%;*/
+    text-align: center;
+}
+
+#home_infor_table{
+    height: auto;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#home_infor_table td{
+    height: 100%;
+    width: 30%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#spotlight{
+   margin-bottom: 330px;
+}
+
+.inforBox{
+    height: auto;
+}
+
+.title{
+    padding: 2px;
+    text-align: center;
+}
+
+.title img{
+    width: 80px;
+    height: 80px;
+}
+
+.infor_table{
+}
+
+footer{
+    height: 100%;
+    background-color: whitesmoke;
+}
+
+footer p{
+    text-align: center;
+}
+
+#home_footer_table{
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#home_footer_table img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    height: 50px;
+}
+
+#home_footer_table td{
+    width: 100px;
+}
+
+
+
+h2{
+    font-family:monospace;
+}
+
+#container{
+    height: 100%;
+}
+
+/*activity*/
+
+#activity_table{
+    height: 100%;
+    width: 100%;
+}
+
+#activity_left{
+    width: 10%;
+}
+
+#activity_right{
+    90%;
+}
+
+#activity_left_table{
+    position: fixed;
+    text-align: center;
+    top:110px;
+    left: 30px;
+}
+
+.td_wrapper{
+    margin-top: 0px;
+    height: 100%;
+}
+
+#activity_left_table img{
+    width: 75px;
+    height: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.ac_lt_td{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75px;
+    height: 75px;
+}
+
+.circle{
+    color: black;
+    border: solid grey 3px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+.circle a{
+    text-decoration: none;
+}
+
+.circle_title{
+    height: 50px;
+    padding-top: 25px
+}
+/*
+    timeline
+*/
+
+#content{
+    width: 100%;
+    height: 100%;
+}
+
+#timeline_box{
+    width: 100%;
+    margin-top:30px;
+    margin-bottom: 50px;
+}
+
+#timeline_title{
+    margin-top: 130px;
+    text-align: center;
+}
+
+#timeline_left{
+    float:left;
+    width: 49%;
+    text-align: right;
+    margin-bottom: 100px;
+}
+
+#timeline_right{
+    float:left;
+    margin-bottom: 100px;
+    width: 49%;
+}
+
+.left_item{
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 100px;
+}
+
+.right_item{
+    margin-left: 20px;
+    padding-top: 100px;
+    margin-right:20px;
+}
+
+#line{
+    background-color: grey;
+    width: 2px;
+}
+
+.event{
+    
+}
+
+.detail{
+    text-align: left;
+    border: solid 1px black;
+}
+
+.detail img{
+    width: 200px;
+}
+
+#timeline_footer{
+    background-color: lightgrey;
+    position: fixed;
+    height: 60px;
+    bottom:0px;
+    width:100%;
+}
+
+#timeline_footer td{
+    width: 33%;
+}
+
+.time_footer_item{
+    display: inline-block;
+}
+
+#timeline_footer_list{
+    width: 98%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tl_footer_toLeft{
+    float:right;
+}
+
+#tl_footer_toRight{
+    float:left;
+}
+
+/*
+productions.html
+*/
+
+#production_list{
+    width: 100%;
+    padding-top: 150px;
+}
+
+#production_list td{
+    width: 25%;
+}
+
+
+.production{
+    display: block;
+    text-align: center;
+}
+
+.poster{
+    height: 280px;
+    width: 200px;
+}
+
+
+/* activity_overview*/
+
+#activity_table{
+    margin-top: 100px;
+}
+#activity_overview_table{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
+
+#activity_overview_table td{
+    height: 400px;
+    width: 50%;
+}
+
+#activity_overview_table tr td.colored{
+    background-color:brown;
+    color:white;
+}
+
+.ac_ov_content{
+    height: 60%;
+}
+.ac_ov_title{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 2em;
+}
+
+.ac_ov_detail {
+    margin-top: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 60%;
+}
+
+
+/* activity_meetings */
+
+#activity_meetings_table{
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 60px;
+}
+
+#activity_meetings_table tr td.ac_m_70{
+    text-align: left;
+    width: 70%;
+}
+
+#activity_meetings_table tr td.ac_m_75{
+    text-align: left;
+    width: 75%;
+}
+
+#activity_meetings_table tr td.ac_m_25{
+    width: 25%;
+}
+
+#activity_meetings_table tr td.ac_m_33{
+    width: 33%;
+}
+
+#activity_meetings_table tr td.ac_m_30{
+    width: 30%;
+}
+
+#activity_meetings_table tr td.ac_m_20{
+    width: 20%;
+}
+
+#activity_meetings_table tr td.ac_m_40{
+    width: 40%;
+}
+
+#activity_meetings_table tr td.ac_m_50{
+    width: 50%;
+}
+
+#activity_meetings_table table{
+    border: 1px black solid;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+#activity_meetings_table table td{
+    height: 250px;
+}
+
+#activity_meetings_table table tr td.colored{
+    background-color:black;
+    color: white;
+}
+
+.ac_m_h1{
+    margin-left: 10px;
+}
+
+#ac_m_t1{
+    margin-top: 50px;
+    text-align: left;
+}
+
+
+/* about_exterinal_relations.html */
+
+#about_er_table{
+    text-align: center;
+    margin-top: 50px;
+}
+
+#about_er_table td{
+    color: white;
+    background-color:aquamarine;
+    opacity: 50%;
+    border: solid 1px aliceblue;
+    width: 200px;
+	height: 300px;
+}
+
+#about_er_table tr{
+    width: 100%;
+}
+
+#ab_er_content{
+    margin-top: 100px;
+}
+
+.ab_er_h1{
+    margin-top: 50px;
+}
+
+#ab_er{
+    width: 100%;
+}
+
+
+#ab_er tr td.ab_er_left{
+    width: 20%;
+}
+
+#ab_er_table2 td{
+    color: white;
+    background-color:aquamarine;
+    opacity: 50%;
+    border: solid 1px aliceblue;
+    width: 200px;
+	height: 200px;
+}
+
+.organization_box{
+    height: 50px;
+    margin-bottom: -00px;
+}
+
+.location_box{
+    padding-top: 50px;
+    height: 50px;
+    margin-bottom: 50px;
+    
+}
+
+.detail_box{
+    margin-top: 50px;
+    height: 50px;
+    background: white;
+    color:grey;
+}
+
+.detail_span{
+    height: 50%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+}
+
+.detail_span a{
+    text-decoration: none;
+}
+
+.vdate{
+}
+
+.vtable{
+    margin-top: 50px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.vtable td{
+    
+}
+
+.vtable tr td.vdate_box{
+    text-align: center;
+    height: 50px;
+}
+
+.vtable tr.underlined{
+    border-bottom: solid black 2px;
+}
+
+.vline{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid black 1px;
+    width: 0px;
+    height: 50px;
+}
+
+
+#about_er_item1{
+    border:solid black 1px;
+    width: 50%;
+}
+
+.visit_detail_3 td{
+    height: 50%;
+    width: 33%;
+}
+
+.visit_detail_2 td{
+    height: 50%;
+    width: 50%;
+}
+
+.detail_wrapper{
+    height: 100%;
+    margin-top: 0px;
+}
+
+.vbutton{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.detail_wrapper{
+    margin-top: 0px;
+}
+
+/*productions*/

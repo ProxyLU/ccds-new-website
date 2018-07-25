@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <title>CORNELL CHINESE DRAMA SOCIETY</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=cursive">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=fantasy">
+    <style>
+
+        .carousel-caption {
+            
+        }
+        
+        .title{
+            text-align: center;
+        }
+        
+        #banner{
+            
+        }
+        
+        footer img{
+            width: 50px;
+            height: 50px;
+        }
+        
+        .icon_box{
+            width: 50%;
+        }
+    
+        .home_info{
+            background-color: #ffffff;
+        }
+        
+        .caption{
+            margin-top: -100px;
+            color:white;
+        }
+        
+        .year_timeline{
+            writing-mode:bt-lr;
+            -webkit-appearance:slider-vertical;    
+            height: 300px;
+        }
+        
+        .timeline {
+            list-style: none;
+            padding: 20px 0 20px;
+            position: relative;
+        }
+        
+        .timeline{
+            width: 3px;
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            content: " ";
+            width: 3px;
+            background-color: #eeeeee;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .tl_left > .tl_item{
+            float:right;
+            margin-bottom:200px;
+        }
+        
+        .tl_right > .tl_item{
+            margin-top: 200px;
+        }
+        
+        .top{
+            margin-top: 100px;
+        }
+        
+        .btn-circle {
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          padding: 6px 0;
+          font-size: 12px;
+          line-height: 1.428571429;
+          border-radius: 15px;
+        }
+        
+        .hidden{
+            display: none;
+        }
+        
+        .card{
+            width: 30em;    
+        }
+        
+        #tl_left button{
+            float:right;
+        }
+        
+    </style>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script>
+        window.onload=function(){
+            var line = document.getElementById("line");
+            var height = document.getElementById("tl_left").offsetHeight + "px";
+            
+            line.style.height = height;
+        }
+    
+        function toggle(event_id){
+            var line = document.getElementById("line");        
+            var detail = document.getElementById(event_id);
+            var button_id = "b" + event_id;
+            var button = document.getElementById(button_id);
+            var extra = 0;
+            if (detail.style.display == "none" ){
+				detail.style.display = "block";
+                button.innerHTML = "Hide ∧";
+            }else{
+                extra = detail.offsetHeight;
+                console.log(extra);
+				detail.style.display = "none";
+                button.innerHTML = "Read more ∨";
+                line.style.height = (line.offsetHeight - extra) + "px";
+            }
+            
+            var height = document.getElementById("tl_left").offsetHeight;
+            
+            if (line.offsetHeight < height){
+                line.style.height = height + "px";
+            }
+            
+        }
+        
+        function tl_switch(){
+            
+            $hidden = $('.hidden');
+            
+            $hidden.css({
+                display:block
+            });
+            
+            $('.visible').css({
+                display:none
+            });
+            
+        }
+        
+        
+        
+    </script>
+    </head>
+    <body>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#news").addClass("active");
+            });
+        </script>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">
+            <img src="images/icon1.png" width="50" height="50" class="d-inline-block align-top" alt="icon">
+          </a>
+          <a class="navbar-brand" href="#">
+              Cornell Chinese Drama Society
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav navbar-right">
+              <li class="nav-item" id="home">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown" id="about">
+                <a class="nav-link dropdown-toggle" href="about.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  About Us
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="about.html">Overview</a>
+                  <a class="dropdown-item" href="about_executive_board.html">Executive Board</a>
+                  <a class="dropdown-item" href="about_past_executive_boards.html">Past Executive Boards</a>
+                  <a class="dropdown-item" href="about_constitution.html">Constitution</a>
+                  <a class="dropdown-item" href="about_contact.html">Contact Us</a>
+                </div>
+              </li>
+              <li class="nav-item" id="productions">
+                <a class="nav-link" href="productions.html">Productions</a>
+              </li>
+              <li class="nav-item dropdown" id="actitives">
+                <a class="nav-link dropdown-toggle" href="activities_overview.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Activities
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="activities_overview.html">Overview</a>
+                  <a class="dropdown-item" href="activities_external_relations.html">External Relations</a>
+                  <a class="dropdown-item" href="activities_visit_program.html">Distinguished Visitor Program</a>
+                  <a class="dropdown-item" href="activities_meetings.html">Meetings</a>
+                </div>
+              </li>
+              <li class="nav-item" id="news">
+                <a class="nav-link" href="news.html">News</a>
+              </li>
+              <li class="nav-item" id="alumni">
+                <a class="nav-link" href="alumni.html">Alumni</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+    <div class="contianer-fluid top">
+        <div class="container">
+            <h1>Timeline</h1>
+            <div class="row justify-content-center">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2015 Spring</a></li>
+                <li class="page-item"><a class="page-link" href="#">2015 Fall</a></li>
+                <li class="page-item"><a class="page-link" href="#">2016 Spring</a></li>
+                <li class="page-item"><a class="page-link" href="#">2016 Fall</a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">2017 Spring</a><span class="sr-only">(current)</span>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2017 Fall</a></li>
+                <li class="page-item"><a class="page-link" href="#">2018 Spring</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>  
+            </div>
+            
+            <div class="col-md text-center">
+                <h1>2017 Spring</h1>
+            </div>
+            <div class="container">
+              <div class="row justify-content-md-center">
+                <div id="tl_left" class="tl_left col col-lg">
+                  <div class="tl_item">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <p class="text-right font-weight-bold tl_date">May 12, 2017</p>
+                            <p class="card-text">Formation of Executive Board of CCDS for Academic Year 2017–18</p>
+                            <button id="bitem1" class="detail_button btn btn-outline-secondary" onclick="toggle('item1')">Read more ∨</button>
+                        </div>
+                        <div class="card-body" id="item1" style="display:none">
+                            <p>The Cornell Chinese Drama Society (CCDS) is pleased to announce the election of President, CCDS for Academic Year 2017–18, and the appointment of other Executive Board members by the President-elect. The list of members of the Executive Board (AY 2017–18) is as follows:</p><br>
+                    
+                <table>
+				<tbody>
+					<tr>
+						<td>President:</td>
+						<td>Haoxing Pu (蒲昊星)</td>
+					</tr>
+					<tr>
+						<td>Vice-Presidents:</td>
+						<td>Hui Tong (童　辉)<br>
+						Xiaoning Wang (王晓宁)</td>
+					</tr>
+					<tr>
+						<td>Treasurer:</td>
+						<td>Xinyi Wan (万心仪)</td>
+					</tr>
+					<tr>
+						<td>Asst. Treasurer:</td>
+						<td>Qiawen Zhang (张洽闻)</td>
+					</tr>
+					<tr>
+						<td>Public Relations Chair:</td>
+						<td>Yunqin Wang (王韵沁)</td>
+					</tr>
+					<tr>
+						<td>Artistic Director:</td>
+						<td>Pengfei Zhang (张鹏飞)</td>
+					</tr>
+					<tr>
+						<td>Asst. Artistic Director:</td>
+						<td>Yu Gao (高　宇)</td>
+					</tr>
+					<tr>
+						<td>Technical Director:</td>
+						<td>Yixuan Wang (王逸轩)</td>
+					</tr>
+					<tr>
+						<td>Asst. Technical Director:</td>
+						<td>Shuhao Qing (庆舒豪)</td>
+					</tr>
+					<tr>
+						<td>Social Chair:</td>
+						<td>Danyang Han (韩丹阳)</td>
+					</tr>
+					<tr>
+						<td>Design Director:</td>
+						<td>Yuchang Zhou (周郁畅)</td>
+					</tr>
+					<tr>
+						<td>Standing Member:</td>
+						<td>Yong Zhang (张　雍)</td>
+					</tr>
+				</tbody>
+                    
+			</table>
+            <p>We wish the incoming President and the members of the Executive Board every success in their new appointments.</p>
+                    
+            <p>Chinese Drama Society, Cornell<br>
+			Ithaca, NY<br>
+			May 12, 2017</p>
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="tl_item">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <p class="text-right font-weight-bold tl_date">April 22, 2017</p>
+                            <p class="card-text">The Insane Asylum Next Door to Heaven《天堂隔壁是疯人院</p>
+                            <button id="bitem2" class="detail_button btn btn-outline-secondary" onclick="toggle('item2')">Read more ∨</button>
+                        </div>
+                        <div class="card-body" id="item2" style="display:none">
+                             <p>Our flagship production for Spring 2017 was staged on Apr. 21–22, 2017.</p>
+                    
+                            <img class="card-img-bottom" src="images/poster_sp17.jpg" alt="poster"><br>
+                    
+                            <span><a href="production_sp2017.html">Click to view details</a></span>
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="tl_item">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <p class="text-right font-weight-bold tl_date">March 13, 2017</p>
+                            <p class="card-text">CCDS Alumnus Meets Officers of T.I.n.Y. Berkeley Chinese Drama and Entertainment Company</p>
+                            <button id="bitem3" class="detail_button btn btn-outline-secondary" onclick="toggle('item3')">Read more ∨</button>
+                        </div>
+                        <div class="card-body" id="item3" style="display:none">
+                            <p>On Mar. 13, 2017, CCDS Alumnus and Co-founder Qingyun Xie (谢清昀) met with several officers of <a href="http://tinyatberkeley.github.io" target="_blank">T.I.n.Y. Berkeley Chinese Drama and Entertainment Company</a>, a student-run theatre group based in University of California, Berkeley, during his visit. Both sides shared the experiences of both drama groups, discussed a range of issues and explored ways to enhance interactions.</p>
+                    
+                    <p>This meeting highlights the efforts of the CCDS and CCDS Alumni Association to expand our network of friends for the benefit of CCDS and the Chinese collegiate theatre scene at large.</p>
+                    
+                    <p >Chinese Drama Society, Cornell<br>
+			Cornell Chinese Drama Society Alumni Association<br>
+			Ithaca, NY<br>
+			Mar. 13, 2017</p>
+                        </div>
+                    </div>
+                </div>
+                    
+            </div>
+            <div class="col-md-auto justify-content-center">
+                <div id="line" class="timeline_item">
+                </div>
+            </div>
+            <div id="tl_right" class="tl_right col col-lg">
+              <div class="tl_item">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <strong class="d-inline-block mb-2">May 6, 2017</strong>
+                            <p class="card-text">Visit to Yangtze Repertory Theatre of America</p>
+                            <button id="bitem4" class="detail_button btn btn-outline-secondary" onclick="toggle('item4')">Read more ∨</button>
+                        </div>
+                        <div class="card-body" id="item4" style="display:none">
+                            <p>On May 6, 2017, a CCDS delegation led by President-elect, Haoxing Pu (蒲昊星), attended the performance <span style="font-style:italic">Twin Restaurants</span> (双馆计), staged in New York, NY by Yangtze Repertory Theatre of America. Founded in 1992, <a href="http://www.yangtze-rep-theatre.org" target="_blank">Yangtze Repertory Theatre of America, Inc.</a> (美国长江剧团) is a professional Asian theatre company based in New York, NY.</p>
+
+			<p>After the performance, the delegation attended a question-and-answer session with the artistic team, cast and crew. The CCDS delegation called on Executive Director of Yangtze Repertory Theatre, Mr. Wayne Chang (张明伟), Artistic Director of Yangtze Repertory Theatre, Mr. K.K. Wong (黄锦江), and Director of performance, Mr. Tony Wang (王皓松). They discussed plans for further interaction between the two theatre groups.</p>
+
+			<p style="width:70%;margin-left:auto;margin-right:auto;"><img src="http://os_extranet_images.s3.amazonaws.com/433097_original.jpg" style="width:100%"></p>
+
+			<div class="news_caption">Group photograph of CCDS delegation, with the artistic team and cast.<br>
+			CCDS members include: Haoxing Pu, Xiaoning Wang (王晓宁) , Zhiyao Wang (王芷瑶), Danyang Han (韩丹阳), Yong Zhang (张雍), and Yutong Wu (吴雨桐) (from left, 8th to 13th).</div>
+
+			<p>This is our second visit to the Yangtze Repertory Theatre, following the <a href="http://orgsync.rso.cornell.edu/org/chdramasoc/news_20161119_visit_yangtze">inaugural visit in November 2016</a>. We are grateful for the support of Yangtze Repertory Theatre to the CCDS cause.</p>
+
+			<p class="press_release_signature">Chinese Drama Society, Cornell<br>
+			Cornell Chinese Drama Society Alumni Association<br>
+			Ithaca, NY<br>
+			May 6, 2017</p>
+                </div>
+                        </div>
+                    </div>
+                
+                <div class="tl_item">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <strong class="d-inline-block mb-2">April 22, 2017</strong>
+                            <p class="card-text">Visit by Princeton Chinese Theatre</p>
+                            <button id="bitem5" class="detail_button btn btn-outline-secondary" onclick="toggle('item5')">Read more ∨</button>
+                        </div>
+                        <div class="card-body" id="item5" style="display:none">
+                            <p>On April 22, 2017, President, Princeton Chinese Theatre, Letian Wang (王乐天), led a delegation to visit CCDS, at the invitation of President, CCDS, Yilin Liu (刘宜霖). <a href="http://www.princetonchinesetheatre.com" target="_blank">Princeton Chinese Theatre (普林斯顿中文剧社)</a> is a student-run theatre group based in Princeton University, Princeton, NJ.</p>
+
+			<p>During the visit, the PCT delegation met with President, CCDS, Yilin Liu; Vice-President, Haoxing Pu (蒲昊星); Director of Production, Xiaoning Wang (王晓宁). They had in-depth exchanges on the recent development of both drama groups.</p>
+
+			<p>This visit reaffirms the warm ties between CCDS and PCT. We hope to enhance our interactions in the next academic year for the benefit of both groups and our members.</p>
+
+			<p class="press_release_signature">Chinese Drama Society, Cornell<br>
+			Ithaca, NY<br>
+			Apr. 22, 2017</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tl_item">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <strong class="d-inline-block mb-2">January 25, 2017</strong>
+                            <p class="card-text">Auditions and Recruitment for Spring</p>
+                            <button id="bitem6" class="detail_button btn btn-outline-secondary" onclick="toggle('item6')">Read more ∨</button>
+                        </div>
+                        <div class="card-body" id="item6" style="display:none">
+                            <p>2017年春季学期，境缘剧社隆重推出由导演喻荣军先生原创的话剧《天堂隔壁是疯人院》。欢迎加入我们！</p>
+
+			<div style="text-align:center"><img src="http://os_extranet_images.s3.amazonaws.com/432889_original.jpg" alt="poster"></div>
+			
+
+			<div class="header_2">一、招新范围</div>
+
+			<table style="width:100%">
+				<tbody>
+					<tr>
+						<td class="text_highlight" style="text-align:center;">演员</td>
+						<td class="text_highlight" style="text-align:center;">舞美</td>
+						<td class="text_highlight" style="text-align:center;">行政</td>
+					</tr>
+					<tr>
+						<td>
+						<ul>
+							<li>所有演员</li>
+						</ul>
+						</td>
+						<td>
+						<ul>
+							<li>道具（制作、后台调度）</li>
+							<li>灯光（设计、操作）</li>
+							<li>音响（剪辑、操作）</li>
+							<li>服装、化妆</li>
+							<li>摄影</li>
+						</ul>
+						</td>
+						<td>
+						<ul>
+							<li>网站设计和管理</li>
+						</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="header_2">二、招新活动</div>
+
+			<ul>
+				<li>试镜：2月2日（星期四），晚7:00，McGraw Hall 165</li>
+				<li>试镜：2月5日（星期日），晚7:00，McGraw Hall 165</li>
+			</ul>
+
+			<p><span class="text_highlight">有意担任演员的同学：</span> 请参加其中一场试镜。请提前熟悉剧情，并准备所试镜角色相应的剧本片段。可以试镜三个角色。（报名后，我们将给你发送试镜片段。）</p>
+
+			<p><span class="text_highlight">有意参加舞美、行政工作的同学：</span> 请参加其中一场活动并同剧社负责人面谈。舞美、行政可以兼职。</p>
+
+			<p><span class="text_highlight">有意参加剧社，但是不知参加哪一项工作好：</span> 不用着急，建议参加活动并同剧社负责人面谈。</p>
+
+			<div class="header_2">三、报名方式</div>
+
+			<p>网上填表：<a href="https://goo.gl/forms/pugKFpi16HkO0WKf1" target="_blank">请点击这里</a>。请使用学校邮箱（*@cornell.edu）登陆，方便我们同您联系。</p>
+
+			<div class="header_2">我们等着您！</div>
+
+			<div class="header_2">附：演出信息</div>
+
+			<p>日期：2017年4月21日、22日（共两场）</p>
+
+			<p>剧场：Risley Theatre（业余“黑匣子”剧场）</p>
+
+			<p class="press_release_signature">境缘剧社　谨启<br>
+			2017年1月25日</p>
+
+			<p class="press_release_signature">Chinese Drama Society, Cornell<br>
+			Ithaca, NY<br>
+			Jan. 25, 2017</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+          </div>   
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <title>CORNELL CHINESE DRAMA SOCIETY</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=cursive">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=fantasy">
+    <style>
+
+        .carousel-caption {
+            
+        }
+        
+        .title{
+            text-align: center;
+        }
+        
+        #banner{
+            
+        }
+        
+        footer img{
+            width: 50px;
+            height: 50px;
+        }
+        
+        .icon_box{
+            width: 50%;
+        }
+    
+        .home_info{
+            background-color: #ffffff;
+        }
+        
+        .caption{
+            margin-top: 100px;
+            color:white;
+        }
+        
+        .top{
+            margin-top: 100px;
+        }
+        
+        .top_bg{
+            background-color: #000000;
+            
+        }
+        
+        #productions_banner{
+            background: url("images/productions_banner.jpg");
+        }
+        
+        .text-box{
+            padding-top:3%;
+            padding-left: 5%;
+        }
+        
+        .productions_gap{
+            margin-top: 50px;
+        }
+    </style>
+    </head>
+    <body>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+        
+        <script>
+            $(document).ready(function(){
+                $("#productions").addClass("active");
+            });
+        </script>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">
+            <img src="images/icon1.png" width="50" height="50" class="d-inline-block align-top" alt="icon">
+          </a>
+          <a class="navbar-brand" href="#">
+              Cornell Chinese Drama Society
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav navbar-right">
+              <li class="nav-item" id="home">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown" id="about">
+                <a class="nav-link dropdown-toggle" href="about.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  About Us
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="about.html">Overview</a>
+                  <a class="dropdown-item" href="about_executive_board.html">Executive Board</a>
+                  <a class="dropdown-item" href="about_past_executive_boards.html">Past Executive Boards</a>
+                  <a class="dropdown-item" href="about_constitution.html">Constitution</a>
+                  <a class="dropdown-item" href="about_contact.html">Contact Us</a>
+                </div>
+              </li>
+              <li class="nav-item" id="productions">
+                <a class="nav-link" href="productions.html">Productions</a>
+              </li>
+              <li class="nav-item dropdown" id="actitives">
+                <a class="nav-link dropdown-toggle" href="activities_overview.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Activities
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="activities_overview.html">Overview</a>
+                  <a class="dropdown-item" href="activities_external_relations.html">External Relations</a>
+                  <a class="dropdown-item" href="activities_visit_program.html">Distinguished Visitor Program</a>
+                  <a class="dropdown-item" href="activities_meetings.html">Meetings</a>
+                </div>
+              </li>
+              <li class="nav-item" id="news">
+                <a class="nav-link" href="news.html">News</a>
+              </li>
+              <li class="nav-item" id="alumni">
+                <a class="nav-link" href="alumni.html">Alumni</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+    <div class="container-fluid text-white" style="margin-top:75px; height: 420px" id="productions_banner">
+        <div class="text-box">
+            <h1 class="diplay-4">CCDS Productions</h1>
+            <p class="card-text">Cillum ad ut irure tempor velit nostrud occaecat ullamco aliqua anim Lorem sint. <br/>Veniam sint duis incididunt do esse magna mollit excepteur laborum qui. <br/>Id id reprehenderit sit est eu aliqua occaecat quis et velit excepteur laborum mollit dolore eiusmod. <br/>Ipsum dolor in occaecat commodo et voluptate minim reprehenderit mollit pariatur.</p>
+        </div>
+    </div>
+    
+    <div class="container-fluid">
+        <div class="container productions_gap">
+        <h3 class="productions_year">2018</h3>
+        <div class="row">
+            <div class="col-sm">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <a class="" href="#">
+                <img class="card-img-left flex-auto d-none d-lg-block poster" src="images/poster_sp18.jpg" alt="Card image cap">
+                </a>
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">Mousetrap</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">捕鼠器</a>
+                  </h3>
+                  <div class="mb-1 text-muted">May 4–5</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Synopsis</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <img class="card-img-left flex-auto d-none d-lg-block poster" src="images/white.jpeg" alt="Card image cap">
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">Workshop Production</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">实验演出</a>
+                  </h3>
+                  <div class="mb-1 text-muted">Apr. 22</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Synopsis</a>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        
+        <h3 class="productions_year">2017</h3>
+        <div class="row">
+            <div class="col-sm">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <a class="" href="#">
+                <img class="card-img-left flex-auto d-none d-lg-block poster" src="images/poster_fa17.jpg" alt="Card image cap">
+                </a>
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">Accidental Death of an Anarchist</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">一个无政府主义者的意外死亡</a>
+                  </h3>
+                  <div class="mb-1 text-muted">Nov. 17–18</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Synopsis</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <a class="" href="#">
+                <img class="card-img-left flex-auto d-none d-lg-block poster" src="images/poster_fa17_2.jpg" alt="Card image cap">
+                </a>
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">‘Art’</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">艺术</a>
+                  </h3>
+                  <div class="mb-1 text-muted">Oct. 21</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Synopsis</a>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <a class="" href="#">
+                <img class="card-img-left flex-auto d-none d-lg-block poster" src="images/poster_sp17.jpg" alt="Card image cap">
+                </a>
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">The Insane Asylum Next Door to Heaven</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">天堂隔壁是疯人院</a>
+                  </h3>
+                  <div class="mb-1 text-muted">Apr 21-22</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Synopsis</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <img class="card-img-left flex-auto d-none d-lg-block poster" src="images/poster_guest_lecture.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">China's Theater Anarchist Meng Jinghui</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">中国实验戏剧导演：孟京辉</a>
+                  </h3>
+                  <div class="mb-1 text-muted">Apr. 22</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Synopsis</a>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <h3 class="productions_year">2016</h3>
+        <div class="row">
+            <div class="col-sm">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <img class="card-img-left flex-auto d-none d-lg-block poster" src="images/poster_fa16_1.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">No U Turn</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">禁止掉头</a>
+                  </h3>
+                  <div class="mb-1 text-muted">Nov 4–5</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Synopsis</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <img class="card-img-left flex-auto d-none d-lg-block poster" src="images/poster_fa16_2.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">Amber</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">琥珀</a>
+                  </h3>
+                  <div class="mb-1 text-muted">Nov 12</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Synopsis</a>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <img class="card-img-left flex-auto d-none d-lg-block poster" src="images/poster_sp16.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">Sand and a Distant Star</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">在那遥远的星球，一粒沙</a>
+                  </h3>
+                  <div class="mb-1 text-muted">Apr 15-16</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Synopsis</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+            </div>
+        </div>
+        
+        
+        <h3 class="productions_year">2015</h3>
+        <div class="row">
+            <div class="col-sm">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <img class="card-img-left flex-auto d-none d-lg-block poster" src="images/poster_fa15.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">Like Shadows</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">如影随行</a>
+                  </h3>
+                  <div class="mb-1 text-muted">Oct 23-24</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Synopsis</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <img class="card-img-left flex-auto d-none d-lg-block poster" src="images/poster_sp15.png" alt="Card image cap">
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">Secret Love in Peach Blossom Land</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">暗恋桃花源</a>
+                  </h3>
+                  <div class="mb-1 text-muted">Mar 7</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Synopsis</a>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <h3 class="productions_year">2014</h3>
+        <div class="row">
+            <div class="col-sm">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <img class="card-img-left flex-auto d-none d-lg-block poster" src="images/poster_fa14.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">Rhinoceros in Love</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">恋爱的犀牛</a>
+                  </h3>
+                  <div class="mb-1 text-muted">Nov 15</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Synopsis</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+            </div>
+        </div>
+        
+        <h3 class="productions_year">2013</h3>
+        <div class="row">
+            <div class="col-sm">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <img class="card-img-left flex-auto d-none d-lg-block poster" src="images/poster_fa13.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column align-items-start">
+                  <strong class="d-inline-block mb-2 text-primary">Thunderstorm (Act IV)</strong>
+                  <h3 class="mb-0">
+                    <a class="text-dark" href="#">雷雨（第四幕）</a>
+                  </h3>
+                  <div class="mb-1 text-muted">Dec 8</div>
+                  <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#">Synopsis</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

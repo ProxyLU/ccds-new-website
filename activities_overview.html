@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <title>CORNELL CHINESE DRAMA SOCIETY</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=cursive">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=fantasy">
+    <style>
+
+        .carousel-caption {
+            
+        }
+        
+        .title{
+            text-align: center;
+        }
+        
+        #banner{
+            
+        }
+        
+        footer img{
+            width: 50px;
+            height: 50px;
+        }
+        
+        .icon_box{
+            width: 50%;
+        }
+    
+        .home_info{
+            background-color: #ffffff;
+        }
+        
+        .caption{
+            margin-top: -100px;
+            color:white;
+        }
+        
+        .year_timeline{
+            writing-mode:bt-lr;
+            -webkit-appearance:slider-vertical;    
+            height: 300px;
+        }
+        
+        .timeline {
+            list-style: none;
+            padding: 20px 0 20px;
+            position: relative;
+        }
+        
+        .timeline{
+            width: 3px;
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            content: " ";
+            width: 3px;
+            background-color: #eeeeee;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .tl_left > .tl_item{
+            float:right;
+            margin-bottom:200px;
+        }
+        
+        .tl_right > .tl_item{
+            margin-top: 200px;
+        }
+        
+        .top{
+            margin-top: 100px;
+        }
+        
+        .hidden{
+            display: none;
+        }
+        
+    </style>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script>
+    
+        function toggle(event_id){
+            var line = document.getElementById("line");
+            
+            var detail = document.getElementById(event_id);
+            var button_id = "b" + event_id;
+            var button = document.getElementById(button_id);
+            
+            if (detail.style.display == "none" ){
+				detail.style.display = "block";
+                button.innerHTML = "Hide ∧";
+            }else{
+				detail.style.display = "none";
+                button.innerHTML = "Read more ∨";
+            }
+            
+            var left = document.getElementById("timeline_left");
+            var right = document.getElementById("timeline_right");
+            var l_height = left.offsetHeight;
+            var r_height = right.offsetHeight;
+            
+            if (l_height >= r_height){
+                var maxh = l_height + "px";
+            } else {
+                var maxh = r_height + "px";
+            }
+            
+            line.style.height = maxh;
+        }
+        
+        function tl_switch(){
+            
+            $hidden = $('.hidden');
+            
+            $hidden.css({
+                display:block
+            });
+            
+            $('.visible').css({
+                display:none
+            });
+            
+        }
+        
+        $(document).ready(function(){
+            $("#tl_to_left").click(function(){
+                $(".visible").css("display", "none");
+                $(".hidden").css("display", "block");
+            });
+            
+            $("#tl_to_right").click(function(){
+                $(".visible").css("display", "block");
+                $(".hidden").css("display", "none");
+            });
+            
+        });
+        
+        
+    </script>
+    </head>
+    <body>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#actitives").addClass("active");
+            });
+        </script>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">
+            <img src="images/icon1.png" width="50" height="50" class="d-inline-block align-top" alt="icon">
+          </a>
+          <a class="navbar-brand" href="#">
+              Cornell Chinese Drama Society
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav navbar-right">
+              <li class="nav-item" id="home">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown" id="about">
+                <a class="nav-link dropdown-toggle" href="about.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  About Us
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="about.html">Overview</a>
+                  <a class="dropdown-item" href="about_executive_board.html">Executive Board</a>
+                  <a class="dropdown-item" href="about_past_executive_boards.html">Past Executive Boards</a>
+                  <a class="dropdown-item" href="about_constitution.html">Constitution</a>
+                  <a class="dropdown-item" href="about_contact.html">Contact Us</a>
+                </div>
+              </li>
+              <li class="nav-item" id="productions">
+                <a class="nav-link" href="productions.html">Productions</a>
+              </li>
+              <li class="nav-item dropdown" id="actitives">
+                <a class="nav-link dropdown-toggle" href="activities_overview.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Activities
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="activities_overview.html">Overview</a>
+                  <a class="dropdown-item" href="activities_external_relations.html">External Relations</a>
+                  <a class="dropdown-item" href="activities_visit_program.html">Distinguished Visitor Program</a>
+                  <a class="dropdown-item" href="activities_meetings.html">Meetings</a>
+                </div>
+              </li>
+              <li class="nav-item" id="news">
+                <a class="nav-link" href="news.html">News</a>
+              </li>
+              <li class="nav-item" id="alumni">
+                <a class="nav-link" href="alumni.html">Alumni</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+    <div class="contianer-fluid top">
+        <div class="row">
+          <div class="col-3">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <h5 class="nav-link" role="tab" aria-controls="v-pills-home" aria-selected="true">Activities</h5>
+              <a class="nav-link active" id="v-pills-o-tab" href="activities_overview.html" aria-controls="v-pills-o" aria-selected="true">Overview</a>
+              <a class="nav-link" id="v-pills-er-tab" href="activities_external_relations.html" aria-controls="v-pills-er" aria-selected="false">External relations</a>
+              <a class="nav-link" id="v-pills-dvp-tab" href="activities_visit_program.html" aria-controls="v-pills-dvp" aria-selected="false">Distinguished Visitor Program</a>
+              <a class="nav-link" id="v-pills-gm-tab" href="activities_meetings.html" aria-controls="v-pills-gm" aria-selected="false">General Meetings</a>
+            </div>
+          </div>
+          <div class="col-9" id="main">
+              <div class="card-columns">
+                  <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">An Evening of Chinese Drama</h5>
+                        <p class="card-text">Our flagship production in Spring 2018, <span style="font-style:italic;">Mousetrap</span> (捕鼠器) is scheduled for May 4 – 5, 2018 (Fri., Sat.) at Risley Theatre, Cornell University.</p>
+                        <p class="card-text">Click <a href="http://orgsync.rso.cornell.edu/org/chdramasoc/activities_prod_2018_sp">here</a> for more information.</p>
+                      </div>
+                  </div>
+                  
+                  <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Acting and Technical Workshops</h5>
+                        <p class="card-text">CCDS organizes a series of acting workshops for our members, with the efforts culminating in a workshop production scheduled for April 22, 2018. In addition, our long-established technical workshops introduce the basics of theatre and lighting to cast and crew.</p>
+                        <p class="card-text">Click <a href="http://orgsync.rso.cornell.edu/org/chdramasoc/activities_prod_2018_sp_workshop">here</a> for more information on the workshop production.</p>
+                      </div>
+                  </div>
+                  
+                  <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Exchange Visits</h5>
+                        <p class="card-text">We organize regular exchanges with other Chinese drama groups across U.S. universities. Visits by theatre professionals and scholars are also planned whenver such opportunities are available. Stay updated on our mailing list.</p>
+                        <p class="card-text">Read more about our wide network of partner organizations <a href="http://orgsync.rso.cornell.edu/org/chdramasoc/about_us_external">here</a>.</p>
+                      </div>
+                  </div>
+                  
+                  <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">General Meetings</h5>
+                        <p class="card-text">General Meetings, held twice every semester, will be announced over the mailing list. Click <a href="http://orgsync.rso.cornell.edu/org/chdramasoc/activities_gen_meeting">here</a> for more information.</p>
+                      </div>
+                  </div>
+                  
+                  <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Gatherings and Retreats</h5>
+                        <p class="card-text">The CCDS is a closely knit community of drama enthusiasts. At the end of every semester, we organize gatherings in conjunction with the cast party of the production. In addition, retreats are held to promote friendship and bonding among our members. All members are welcome to join in.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>    
+        </div>
+    </div>
+
+        
+    </body>
+</html>

@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <title>CORNELL CHINESE DRAMA SOCIETY</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=cursive">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=fantasy">
+    <style>
+
+        .carousel-caption {
+            
+        }
+        
+        .title{
+            text-align: center;
+        }
+        
+        #banner{
+            
+        }
+        
+        footer img{
+            width: 50px;
+            height: 50px;
+        }
+        
+        .icon_box{
+            width: 50%;
+        }
+    
+        .home_info{
+            background-color: #ffffff;
+        }
+        
+        .caption{
+            margin-top: -100px;
+            color:white;
+        }
+        
+        .year_timeline{
+            writing-mode:bt-lr;
+            -webkit-appearance:slider-vertical;    
+            height: 300px;
+        }
+        
+        .timeline {
+            list-style: none;
+            padding: 20px 0 20px;
+            position: relative;
+        }
+        
+        .timeline{
+            width: 3px;
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            content: " ";
+            width: 3px;
+            background-color: #eeeeee;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .tl_left > .tl_item{
+            float:right;
+            margin-bottom:200px;
+        }
+        
+        .tl_right > .tl_item{
+            margin-top: 200px;
+        }
+        
+        .top{
+            margin-top: 100px;
+        }
+        
+        .btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+        
+        .hidden{
+            display: none;
+        }
+        
+    </style>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script>
+    
+        function toggle(event_id){
+            var line = document.getElementById("line");
+            
+            var detail = document.getElementById(event_id);
+            var button_id = "b" + event_id;
+            var button = document.getElementById(button_id);
+            
+            if (detail.style.display == "none" ){
+				detail.style.display = "block";
+                button.innerHTML = "Hide ∧";
+            }else{
+				detail.style.display = "none";
+                button.innerHTML = "Read more ∨";
+            }
+            
+            var left = document.getElementById("timeline_left");
+            var right = document.getElementById("timeline_right");
+            var l_height = left.offsetHeight;
+            var r_height = right.offsetHeight;
+            
+            if (l_height >= r_height){
+                var maxh = l_height + "px";
+            } else {
+                var maxh = r_height + "px";
+            }
+            
+            line.style.height = maxh;
+        }
+        
+        function tl_switch(){
+            
+            $hidden = $('.hidden');
+            
+            $hidden.css({
+                display:block
+            });
+            
+            $('.visible').css({
+                display:none
+            });
+            
+        }
+        
+        $(document).ready(function(){
+            $("#tl_to_left").click(function(){
+                $(".visible").css("display", "none");
+                $(".hidden").css("display", "block");
+            });
+            
+            $("#tl_to_right").click(function(){
+                $(".visible").css("display", "block");
+                $(".hidden").css("display", "none");
+            });
+            
+        });
+        
+        
+    </script>
+    </head>
+    <body>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script> 
+        <script>
+            $(document).ready(function(){
+                $("#about").addClass("active");
+            });
+        </script>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">
+            <img src="images/icon1.png" width="50" height="50" class="d-inline-block align-top" alt="icon">
+          </a>
+          <a class="navbar-brand" href="#">
+              Cornell Chinese Drama Society
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav navbar-right">
+              <li class="nav-item" id="home">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown" id="about">
+                <a class="nav-link dropdown-toggle" href="about.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  About Us
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="about.html">Overview</a>
+                  <a class="dropdown-item" href="about_executive_board.html">Executive Board</a>
+                  <a class="dropdown-item" href="about_past_executive_boards.html">Past Executive Boards</a>
+                  <a class="dropdown-item" href="about_constitution.html">Constitution</a>
+                  <a class="dropdown-item" href="about_contact.html">Contact Us</a>
+                </div>
+              </li>
+              <li class="nav-item" id="productions">
+                <a class="nav-link" href="productions.html">Productions</a>
+              </li>
+              <li class="nav-item dropdown" id="actitives">
+                <a class="nav-link dropdown-toggle" href="activities_overview.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Activities
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="activities_overview.html">Overview</a>
+                  <a class="dropdown-item" href="activities_external_relations.html">External Relations</a>
+                  <a class="dropdown-item" href="activities_visit_program.html">Distinguished Visitor Program</a>
+                  <a class="dropdown-item" href="activities_meetings.html">Meetings</a>
+                </div>
+              </li>
+              <li class="nav-item" id="news">
+                <a class="nav-link" href="news.html">News</a>
+              </li>
+              <li class="nav-item" id="alumni">
+                <a class="nav-link" href="alumni.html">Alumni</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+        <script>
+        var svg = d3.select("#map").append("svg").attr("height","950").attr("width","950");
+        svg.append("text").text("Map visualization of Democratic victory probability for states with senate seats in contention")
+            .attr("x",500)
+            .attr("y", 120)
+            .style("font-family", "avenir")
+            .style("font-size", 18)
+            .attr("alignment-baseline", "middle")
+            .attr("text-anchor", "middle");
+        var projection = d3.geoAlbersUsa().scale(75);
+        var pathGenerator = d3.geoPath().projection(projection);
+        var percentScale = d3.scaleLinear().domain([0, 4, 20, 50, 70, 85, 100]).range(["#fff7fb","#a6bddb","#7A96B9","#5A7BA8", "#456C9D", "#25528C","#03377A"]);
+        var states;
+        var usdaAtlas;
+        var parseRow = function(row) {
+          return row;
+        }
+        d3.queue()
+        .defer(d3.json,"us.json")
+        .defer(d3.csv, "statedata.csv", parseRow)
+        .await(callback);
+        function callback (error, rawMap, rawUSDA) {
+        usdaAtlas = d3.map(rawUSDA, function(d){
+          return Number(d.FIPS);
+        });
+          states = topojson.feature(rawMap, rawMap.objects.states);
+          showMap(percentScale, "ProbabilityOfDemWin");
+        }
+        function showMap(scale, variable) {
+          projection.fitExtent([[0,0], [svg.attr("width"), svg.attr("height")]], states);
+          pathGenerator = d3.geoPath().projection(projection);
+          var paths = svg.selectAll("path.state").data(states.features);
+          paths = paths.enter().append("path").attr("class", "state")
+          .merge(paths);
+          paths
+          .style("fill", function (state) {
+              var stateData = usdaAtlas.get(state.id)
+              if (stateData){
+                  return scale(stateData[variable]);
+              }
+          })
+          .attr("d", function (state) {
+              return pathGenerator(state);
+          });
+            svg.append("image")
+                .attr("xlink:href","us-quarter-clipart-1.png")
+                .attr("x", 160)
+                .attr("y", 400)
+                .attr("width", 40)
+                .attr("height", 40);
+            svg.append("image")
+                .attr("xlink:href","us-quarter-clipart-1.png")
+                .attr("x", 665)
+                .attr("y", 420)
+                .attr("width", 30)
+                .attr("height", 30);
+            svg.append("image")
+                .attr("xlink:href","us-quarter-clipart-1.png")
+                .attr("x", 230)
+                .attr("y", 530)
+                .attr("width", 40)
+                .style("height", 40);
+            svg.append("image")
+                .attr("xlink:href","us-quarter-clipart-1.png")
+                .attr("x", 560)
+                .attr("y", 460)
+                .attr("width", 40)
+                .attr("height", 40);
+            svg.append("text").text("Darker shade corresponds to a higher probability of the Democratic party winning the contested seats.")
+              .attr("x", 520)
+              .attr("y", 850)
+              .attr("font-family", "avenir")
+              .attr("font-size", 18)
+              .attr("alignment-baseline", "middle")
+              .attr("text-anchor", "middle");
+            svg.append("text").text("Toss-up states, where the probability of either party winning is 50%, are designated with a coin.")
+              .attr("x", 520)
+              .attr("y", 890)
+              .attr("font-family", "avenir")
+              .attr("font-size", 18)
+              .attr("alignment-baseline", "middle")
+              .attr("text-anchor", "middle");
+            svg.append("text").text("Map code inspired by 2/21 lecture prompt.")
+              .attr("x", 520)
+              .attr("y", 930)
+              .attr("font-family", "avenir")
+              .attr("font-size", 14)
+              .attr("alignment-baseline", "middle")
+              .attr("text-anchor", "middle");
+
+        }
+        </script>
+<div id="top">
+    <!--<div id="banner">
+        <img id="icon" src="images/icon1.png" alt="icon">
+        <div id="title">
+        <h2>Cornell Chinese Drama Society</h2>
+        <h3>Cornell Chinese Drama Society</h3>
+        </div>
+    </div>--><!-- end of banner div -->
+    <div id="top_nav">
+        <div id="icon_wrapper">
+        <img id="icon" src="images/icon1.png" alt="icon">
+        <div id="title">
+        <h3>Cornell Chinese Drama Society</h3>
+        <p>Cornell Chinese Drama Society</p>
+        </div>
+        </div>
+        <div id="span_wrapper">
+        <span class="topnav_span"><a href="index.html">HOME</a></span>
+        <span class="topnav_span"><a href="about.html">ABOUT</a></span>
+        <span class="topnav_span"><a href="productions.html">PRODUCTIONS</a></span>
+        <span class="topnav_span"><a href="activities.html">ACTIVITIES</a></span>
+        <span class="topnav_span"><a href="alumni.html">ALUMNI</a></span>
+        </div>
+    </div> <!-- end of top_nav div -->
+</div> <!-- end of top div -->
+
+<div id="container">
+<div id="ab_er_content">
+    <table id="ab_er">
+        <tr>
+            <td class="ab_er_left">
+            
+            
+            </td>
+            <td class="ab_er_right">
+                  <h1 class="ab_er_h1">List of Visits to Partner Organizations</h1>
+    <table id="about_er_table">
+        <tr>
+            <td>
+                <div id="ab_er_box">
+                    <div class="location_box">
+                        <span class="location">Boston / Cambridge, MA</span>
+                    </div>
+                    <div class="organization_box">
+                        <span class="organization">Boston Red Star Theatre</span>
+                        <span class="organization">Boston Wuming Theatre</span>
+                    </div>
+                </div>
+                <div class="detail_box">
+                    <div class="detail_span"><span><a href="about_er_boston.html">detail >></a></span></div>
+                </div>
+            </td>
+            
+            <td>
+                <div id="ab_er_box">
+                     <div class="location_box">
+                         <span class="location">Chicago, IL</span>
+                    </div>
+                     <div class="organization_box">
+                        <span class="organization">Chicago Windmill Drama Club</span>
+                    </div>
+                </div>
+                <div class="detail_box">
+                    <div class="detail_span"><span><a href="about_er_chicago.html">detail >></a></span></div>
+                </div>
+            </td>
+            
+            <td>
+                <div id="ab_er_box">
+                    <div class="location_box">
+                    <span class="location">Ithaca, NY</span>
+                    </div>
+                    <div class="organization_box">
+                        <span class="organization">Ithaca College Chinese Students' and Scholars' Association</span>
+                    </div>
+                </div>
+                   <div class="detail_box">
+                    <div class="detail_span"><span><a href="about_er_ithaca.html">detail >></a></span></div>
+                </div>
+            </td>
+            
+            <td>
+                <div id="ab_er_box">
+                     <div class="location_box">
+                    <span class="location">Minneapolis, MN</span>
+                    </div>
+                    <div class="organization_box">
+                        <span class="organization">Chinese People's Art Theatre of Minnesota</span>
+                    </div>
+                </div>
+                   <div class="detail_box">
+                    <div class="detail_span"><span><a href="about_er_minneapolis.html">detail >></a></span></div>
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <div id="ab_er_box">
+                     <div class="location_box">
+                    <span class="location">New York, NY</span>
+                    </div>
+                     <div class="organization_box">
+                        <span class="organization">Yangtze Repertory Theatre of America</span>
+                        <span class="organization">Columbia Blue Glaze Theatre</span>
+                    </div>
+                </div>
+                   <div class="detail_box">
+                    <div class="detail_span"><span><a href="about_er_newYork.html">detail >></a></span></div>
+                </div>
+            </td>
+            
+            <td>
+                <div id="ab_er_box">
+                    <div class="location_box">
+                    <span class="location">Philadephia, PA</span>
+                    </div>
+                     <div class="organization_box">
+                        <span class="organization">Penn Chinese Theater</span>
+                    </div>
+                </div>
+                   <div class="detail_box">
+                    <div class="detail_span"><span><a href="about_er_philadephia.html">detail >></a></span></div>
+                </div>
+            </td>
+            
+            <td>
+                <div id="ab_er_box">
+                     <div class="location_box">
+                    <span class="location">Princeton, NJ</span>
+                    </div>
+                     <div class="organization_box">
+                        <span class="organization">Princeton Chinese Theatre</span>
+                    </div>
+                </div>
+                   <div class="detail_box">
+                    <div class="detail_span"><span><a href="about_er_princeton.html">detail >></a></span></div>
+                </div>
+            </td>
+            
+            <td>
+                <div id="ab_er_box">
+                     <div class="location_box">
+                    <span class="location">University Park, PA</span>
+                    </div>
+                     <div class="organization_box">
+                        <span class="organization">Pennsylvania State University Chinese Theatre and Movie Society</span>
+                    </div>
+                </div>
+                   <div class="detail_box">
+                    <div class="detail_span"><span><a href="about_er_universityPark.html">detail >></a></span></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    <h1 class="ab_er_h1">List of Visits by Partner Organizations</h1>
+    <table id="ab_er_table2">
+        <tr>
+            <td>
+                 <div id="ab_er_box">
+                     <div class="location_box">
+                    <span class="location">2016-2017</span>
+                    </div>
+                     <div class="organization_box">
+                        <span class="organization">Penn Chinese Theater</span>
+                         <span class="organization">Princeton Chinese Theatre</span>
+                    </div>
+                </div>
+                   <div class="detail_box">
+                    <div class="detail_span"><span><a href="about_er_visits1617.html">detail >></a></span></div>
+                </div>
+            </td>
+            <td>
+                  <div id="ab_er_box">
+                     <div class="location_box">
+                    <span class="location">2015</span>
+                    </div>
+                     <div class="organization_box">
+                        <span class="organization">Boston Wuming Theatre</span>
+                         <span class="organization">Ithaca College Chinese Students' and Scholars' Association Movie Society</span>
+                         <span class="organization">Columbia Blue Glaze Theatre: Mar. 2015</span>
+                         <span class="organization">Pennsylvania State University Chinese Theatre and Movie Society</span>
+                         <span class="organization">Princeton Chinese Theatre</span>
+                    </div>
+                </div>
+                   <div class="detail_box">
+                    <div class="detail_span"><span><a href="about_er_visits1415.html">detail >></a></span></div>
+                </div>
+            </td>
+        </tr>            
+    </table>
+            </td>
+    </tr>
+    </table>
+    
+</div> <!-- end of content div -->   
+    
+</div> <!-- end of container div -->
+</body>
+<footer>
+    <p>©2014 – 17 Cornell Chinese Drama Society</p>
+    <p>Ithaca, NY</p>
+</footer>
+</html>
